@@ -1,0 +1,408 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+html {
+    height: 100%;
+}
+body {
+    /* Margin above jumbotron image - necessary for navbar*/
+    padding-top: 50px;
+    /* Margin underneath jumbotron image */
+    padding-bottom: 20px;
+    height: 100%;
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+/* Popup modals/boxes */
+.modal .modal-body {
+    max-height: 430px;
+    overflow-y: auto;
+}
+.jumbotron {
+    padding: 30px;
+    min-height: 500px;
+    height: 100%;
+    width: 100%;
+    margin-bottom: -80px;
+    color: white;
+    top:0;
+    left:0;
+    text-shadow: black 0.1em 0.1em 0.1em;
+    z-index: -1;
+}
+#section-home {
+    min-height: 400px;
+    height: 400px;
+    width: 100%;
+    margin-bottom: -70px;
+    color: white;
+    top:0;
+    left:0;
+    z-index: -1;
+    background-image: url(../img/san-francisco-header.jpg);
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#section-education-bg1 {
+    height: 300px;
+    width: 100%;
+    top:0;
+    left:0;
+    z-index: 1;
+    margin-top: 50px;
+    background-image: url(../img/Neu-campus.jpg);
+    background-repeat:no-repeat;
+    background-position: center;
+    /*background-attachment: fixed;*/
+    background-size: cover;
+}
+#section-education-bg2 {
+    height: 300px;
+    width: 100%;
+    z-index: 500;
+    margin-top: 50px;
+    background-image: url(../img/neu_inside.jpg);
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/*
+#section-education-bg2 {
+  height: 300px;
+  top:0;
+  left:0;
+  z-index: 1;
+  margin-top: 50px;
+  background-image: url(../img/neu_inside.jpg);
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+*/
+#section-research-bg {
+    height: 300px;
+    width: 100%;
+    z-index: 700;
+    margin-top: 50px;
+    /*Photo from https://www.eschoolnews.com/2017/08/10/state-computer-science-programs/ */
+    background-image: url(../img/cs.jpg);
+    background-repeat:no-repeat;
+    background-position: right;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.jumbotron-research h1,
+.jumbotron-research .h1 {
+    font-family: 'Crimson Text', serif;
+    color: inherit;
+}
+
+.jumbotron .container {
+    /* Jumbotron text vertical align */
+    margin-top: 13%;
+}
+
+.navbar-inverse {
+    /* background-color: #001133; /* Navbar background OLD BG pre-7/14/2014 */
+    background-color: #162252;
+    border-color: #080808;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #001155;
+}
+/* Navbar Text */
+.navbar-inverse .navbar-text {
+    color: #ddd;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ddd;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #3790e8;
+    background-color: transparent;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #3790e8;
+    background-color: #080808;
+}
+a {
+    color: #005588;
+    text-decoration: none;
+}
+a:hover,
+a:focus {
+    color: #3790e8;
+    text-decoration: none;
+}
+a.anchor-top{
+    display: block;
+    position: relative;
+    top: -100px;
+    visibility: hidden;
+}
+a.anchor-education {
+    display: block;
+    position: relative;
+    top: 270px;
+    visibility: hidden;
+}
+a.anchor-research {
+    display: block;
+    position: relative;
+    top: 270px;
+    visibility: hidden;
+}
+a.anchor-work {
+    display: block;
+    position: relative;
+    top: 270px;
+    visibility: hidden;
+}
+a.anchor-contact {
+    display: block;
+    position: relative;
+    top: 270px;
+    visibility: hidden;
+}
+
+a.anchor-no-img {
+    display: block;
+    position: relative;
+    padding-bottom: 50px;
+    visibility: hidden;
+}
+a.anchor {
+    display: block;
+    position: relative;
+    padding-bottom: 75px;
+    top: 175px;
+    visibility: hidden;
+}
+.about {
+    font-size: 12pt;
+}
+
+h1, .h1 {
+    text-align: center;
+}
+
+h1,
+.h1,
+h2,
+.h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+h3,
+.h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+/* Sticky footer */
+#wrap {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0px auto 0px;
+    /* Pad bottom by footer height */
+    padding: 0 0 0px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    height: 100px;
+    color: #fff;
+    margin-bottom: -30px;
+    padding-top: -30px;
+    vertical-align: middle;
+    background-color: #162252;
+}
+
+#custom-nav {
+    /* 1   2   3   color */
+    -webkit-box-shadow: 0px 1px 20px #000;
+    -moz-box-shadow:    0px 1px 20px #000;
+    box-shadow:         0px 1px 20px #000;
+    /* 1. Left align
+       2. Dropshadow distance
+       3. Blur radius */
+    z-index:999;
+}
+
+
+.alerts {
+    margin: 20px;
+}
+
+.alerts p {
+    /* quick and dirty hack added by me, you may remove it if not needed */
+    margin: 0; padding: 0;
+}
+
+.alert-message.danger, .alert-message.danger:hover, .alert-message.error, .alert-message.error:hover, .alert-message.success, alert-message.success:hover, .alert-message.info, .alert-message.info:hover {
+    color: #ffffff;
+}
+.alert-message .close {
+    font-family: Arial, sans-serif;
+    line-height: 18px;
+}
+.alert-message.danger, .alert-message.error {
+    background-color: #c43c35;
+    background-repeat: repeat-x;
+
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));
+    background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
+    background-image: -ms-linear-gradient(top, #ee5f5b, #c43c35);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee5f5b), color-stop(100%, #c43c35));
+    background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
+    background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
+    background-image: linear-gradient(top, #ee5f5b, #c43c35);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);
+
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-color: #c43c35 #c43c35 #882a25;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+:root .alert-message {
+    border-radius: 0 \0;
+}
+.close {
+    float: right;
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 13.5px;
+    text-shadow: 0 1px 0 #ffffff;
+    filter: alpha(opacity=25);
+    -khtml-opacity: 0.25;
+    -moz-opacity: 0.25;
+    opacity: 0.25;
+}
+.close:hover {
+    color: #000000;
+    text-decoration: none;
+    filter: alpha(opacity=40);
+    -khtml-opacity: 0.4;
+    -moz-opacity: 0.4;
+    opacity: 0.4;
+}
+.alert-message {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+
+    position: relative;
+    padding: 7px 15px;
+    margin-bottom: 18px;
+    color: #404040;
+
+    background-color: #eedc94;
+    background-repeat: repeat-x;
+
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#fceec1), to(#eedc94));
+    background-image: -moz-linear-gradient(top, #fceec1, #eedc94);
+    background-image: -ms-linear-gradient(top, #fceec1, #eedc94);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fceec1), color-stop(100%, #eedc94));
+    background-image: -webkit-linear-gradient(top, #fceec1, #eedc94);
+    background-image: -o-linear-gradient(top, #fceec1, #eedc94);
+    background-image: linear-gradient(top, #fceec1, #eedc94);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fceec1', endColorstr='#eedc94', GradientType=0);
+
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-color: #eedc94 #eedc94 #e4c652;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-width: 1px;
+    border-style: solid;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.alert-message .close {
+    margin-top: 0;
+}
+.alert-message a {
+    font-weight: bold;
+    color: #404040;
+    text-decoration: none;
+}
+.alert-message.danger p a, .alert-message.error p a, .alert-message.success p a, .alert-message.info p a {
+    color: #ffffff;
+}
+.alert-message p a:hover {
+    text-decoration: underline;
+}
+.alert-message p {
+    margin-bottom: 0;
+}
+
+.profile-picture img {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    -webkit-border-radius: 50%;
+}
+
+.align-center {
+    text-align: center;
+    padding-top: 50px;
+    vertical-align: middle;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+}
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0;
+}
+
+ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+}
+.social-circle li a {
+    background: #003DAD;
+}
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+.social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+}
+.social-circle i {
+    color: #fff;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
