@@ -64,7 +64,7 @@ body {
     background-repeat:no-repeat;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
+
 }
 /*
 #section-education-bg2 {
@@ -89,7 +89,7 @@ body {
     background-repeat:no-repeat;
     background-position: right;
     background-size: cover;
-    background-attachment: fixed;
+    
 }
 
 .jumbotron-research h1,
