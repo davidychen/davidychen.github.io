@@ -1,0 +1,228 @@
+%-------------------------
+% Resume in Latex
+% Author : David Chen
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%\renewcommand{\baselinestretch}{1} % between lines
+%\setlength\lineskip{0.2pt} % between sections / pars
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+% \newcommand{\resumeItem}[2]{
+%   \item\small{
+%    \textbf{#1}{: #2 \vspace{-2pt}}
+%   }
+% }
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+\newcommand{\resumeItemEdu}[1]{
+  \item[]\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheadingEdu}[5]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3}\small #4 & \small #5 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+	\resumeSubheadingEdu{#1}{#2}{#3}{}{#4}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubItemEdu}[1]{\resumeItemEdu{#1}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\bullet$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[label={},leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEduStart}{\begin{itemize}[label={}]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+\begin{tabular}{c}
+  \textbf{\href{http://davidychen.com/}{\Large Yifei (David) Chen}}\\
+  San Jose, CA 95136 $\vert$ \href{http://davidychen.com/}{davidychen.com}\\
+\end{tabular}
+\end{center}
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheadingEdu
+      {Northeastern University}{San Jose, CA}
+      {Master of Science in Computer Science}{, GPA: 3.93/4.00}{09/2017 - 12/2019}
+      \resumeItemListEduStart
+      	\resumeItem{Related Courses: Database Management, Algorithms, Computer Systems, Web Development, Artificial Intelligence}
+      	\resumeItem{Activities: Chair and founder of IEEE Student Branch and ACM Student Chapter}
+      \resumeItemListEnd
+    \resumeSubheadingEdu
+      {Case Western Reserve University}{Cleveland, OH}
+      {Master of Science in Finance, Risk Management}{, GPA: 3.77/4.0}{08/2015 - 05/2017}
+      \resumeItemListEduStart
+      	%\resumeItem{Related Courses: Financial Big Data, Discrete Math, Financial Modeling, Stochastic Models}
+      	\resumeItem{Activities: Vice-President of Graduate Student Council; President of Multicultural Club}
+      	\resumeItem{Awards: Outstanding Student Organization Officer Award, Theodore M. Alfred Distinguished Service Award}
+      \resumeItemListEnd
+      \resumeSubheadingEdu
+      {Shanghai University of Finance and Economics}{Shanghai, China}
+      {Bachelor of Economics in Public Finance}{, GPA: 3.35/4.0}{09/2011 - 07/2015}
+		\resumeItemListEduStart
+      	\resumeItem{Related Courses: Computer Programming, Project Management, Information System, Computer Application}
+		\resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL KNOWLEDGE------------
+\section{Technical Knowledge}
+\begin{center}
+\small
+\begin{tabular*}{\textwidth}{l@{\hskip 2em}l}
+	\textbf{Programming} & C/C++, Java, Python, JavaScript, HTML, CSS, Node.js, \LaTeX , Assembly\\
+	\textbf{Data Analysis} & PostgreSQL, MySQL, MongoDB, SAS, R, MATLAB
+\end{tabular*}
+\end{center}
+
+%-----------EXPERIENCE-----------------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {State Street Global Advisors}{Boston, MA}
+      {Quantitative Research Analyst Co-op}{07/2018 - 12/2018}
+      \resumeItemListStart
+      	\resumeItem{Initiated and implemented a portfolio construction Web App hosted on local network with performance analytics}
+        \resumeItem{Conducted cross-functional research and developed portfolio selection models integrating ESG with R and SQL}
+        \resumeItem{Assessed 12 aspects of 4 sovereign risk data providers and presented to global senior management team}
+      \resumeItemListEnd
+    
+    \resumeSubheading
+      {Industrial Bank Research}{Shanghai, China}
+      {Software Development Intern}{06/2017 - 08/2017}
+      \resumeItemListStart
+        \resumeItem{Developed an application (in C++) with Wind database plugin to automatically generate bank credit rating reports}
+        \resumeItem{Designed a SQL database to store 500 banks financial data from Wind, allowing modification and coupled with Excel}
+        \resumeItem{Enabled analysts to adjust weights, view result, and produce reports with graphs for different periods}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {A.T. Kearney}{Shanghai, China}
+      {Part-time Data Analyst}{06/2017 - 08/2017}
+      \resumeItemListStart
+        \resumeItem{Developed and optimized cost and service model (in SQL) for largest semiconductor dealer in Asia-Pacific}
+        \resumeItem{Implemented graph search algorithm using Java Database Connectivity to find least cost and fastest logistic routes}
+        \resumeItem{Reduced 15\% stock keeping units (SKUs) and realized 30\% of saving in both time and transportation}
+    \resumeItemListEnd
+
+%    \resumeSubheading
+%      {L'Or\'eal Group}{Shanghai, China}
+%      {Data Analysis Intern}{06/2015 - 08/2015}
+%      \resumeItemListStart
+%        \resumeItem{Analyzed and visualized historical sales data among all brands and stores in China for 2016 budget planning}
+%        \resumeItem{Utilized decision tree algorithm (in R) to establish a prediction model between budget and sales performance}
+%        \resumeItem{Wrote manuals to train accountants and financial managers among all departments to provide best data practice}
+%      \resumeItemListEnd
+ 
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+	\resumeSubheading
+      {Image Style Transfer}{San Jose, CA}
+      {Northeastern University AI Project}{01/2018 - 04/2018}
+      \resumeItemListStart
+        \resumeItem{Implemented artistic style transfer combining style and content based on Convolutional Neural Networks (CNN)}
+        \resumeItem{Utilized VGG-16 as pre-trained networks, TensorFlow for calculation and Google Cloud with GPU for computing}
+        \resumeItem{Experimented with different technics for multiple style transferring, including weighted average and Leaky ReLU}
+    \resumeItemListEnd
+	
+	\resumeSubheading
+      {Operating Systems Implementation}{San Jose, CA}
+      {Northeastern University Computer Systems Project}{01/2018 - 04/2018}
+      \resumeItemListStart
+        \resumeItem{Implemented fsx600 file system with FUSE library using C with command line access for files and directories}
+        \resumeItem{Realized user-space thread system including mutexes and condition variables on x86 Linux system}
+        \resumeItem{Wrote unit tests in shell scripts and reached coverage over 90\%}
+      \resumeItemListEnd
+	
+    \resumeSubheading
+      {Optimization of Moving Average Ratio (MAR) in commodity trading strategy}{Cleveland, OH}
+      {Case Western Reserve University Project}{11/2016 - 12/2016}
+      \resumeItemListStart
+        \resumeItem{Designed and maintained 50GB market data and automated trading strategy on MAR to check the feasibility}
+        \resumeItem{Included seasonality and user preference of risk to generate buy or sell recommendation on daily bases}
+        \resumeItem{Optimized strategy using TensorFlow in Python succeeded in getting a 17\% higher accuracy in predictions}
+      \resumeItemListEnd
+
+\iffalse
+    \resumeSubheading
+      {Auto Grading software}{Cleveland, OH}
+      {Case Western Reserve University Project}{09/2016 - 12/2016}
+      \resumeItemListStart
+        \resumeItem{Wrote auto grading software, allowing reusable feedbacks and personalized pdf grade reports}
+        \resumeItem{Applied cheating detection by using text similarity measures in Python}
+        \resumeItem{Added GUI features for multiple classes and students, still used by three professors}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Stock Recommendation System from social media}{Cleveland, OH}
+      {Case Western Reserve University Project}{07/2016 - 08/2016}
+      \resumeItemListStart
+        \resumeItem{Built a portfolio recommendation system (in Java) by training with 10 million posts from Seeking Alpha forum}
+        \resumeItem{Web scraped discussion and reviews  classified stocks based on financial key words in Python}
+      \resumeItemListEnd
+\fi
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
