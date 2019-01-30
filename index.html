@@ -1,588 +1,589 @@
-<!DOCTYPE html>
-<html lang="en"> 
-<head>
-    <title>David Chen</title>
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="David Chen's Portfolio">
-    <meta name="author" content="David Chen">    
-    <link rel="shortcut icon" href="favicon.ico">  
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- FontAwesome JS-->
-    <script src="assets/plugins/font-awesome/js/fontawesome-all.min.js"></script>
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-    <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/theme-1.css">
-    <!-- Lightbox -->
-    <link rel="stylesheet" href="assets/plugins/lightbox/simpleLightbox.css">
-</head> 
+    <!DOCTYPE html>
+    <html lang="en"> 
+    <head>
+        <title>David Chen</title>
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="David Chen's Portfolio">
+        <meta name="author" content="David Chen">    
+        <link rel="shortcut icon" href="favicon.ico">  
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <!-- FontAwesome JS-->
+        <script src="assets/plugins/font-awesome/js/fontawesome-all.min.js"></script>
+        <!-- Global CSS -->
+        <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="assets/css/theme-1.css">
+        <!-- Lightbox -->
+        <link rel="stylesheet" href="assets/plugins/lightbox/simpleLightbox.css">
+    </head> 
 
-<body>
+    <body>
 
-    <header class="header">
-        <div class="top-bar container-fluid">
-            <div class="actions">
-                <a class="btn d-none d-md-inline-block" href="mailto:me@davidychen.com"><i class="fas fa-paper-plane" aria-hidden="true"></i> Email Me</a>
-                <a class="btn" href="assets/files/Resume_David.pdf"><i class="fas fa-download" aria-hidden="true"></i> Download My Resume</a>
-            </div><!--//actions-->
-            <ul class="social list-inline">
-                <li class="list-inline-item"><a href="https://www.linkedin.com/in/david-ychen/"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
-                <li class="list-inline-item"><a href="https://twitter.com/davidychen1"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                <li class="list-inline-item"><a href="https://github.com/davidychen"><i class="fab fa-github-alt" aria-hidden="true"></i></a></li>
-            </ul><!--//social-->
-        </div><!--//top-bar-->
-        
-        <div class="intro">
-            <div class="container text-center">
-                <img class="profile-image" src="assets/images/profile.png" alt="">
-                <h1 class="name">David Chen</h1>
-                <div class="title">Software Developer</div>
-                <div class="profile">
-                    <p >I am currently a master student studying Computer Science at <a href="https://www.khoury.northeastern.edu/">Khoury College of Computer and Information Sciences</a>, <a href="https://www.northeastern.edu/">Northeastern University</a>. I finished my undergrad at <a href="http://english.sufe.edu.cn/">Shanghai University of Finance and Economics</a> where I got a B.S. in Public Finance and my first master at <a href="https://case.edu/">Case Western Reserve University</a> with M.S. in Finance. My interests lie in <a href="https://en.wikipedia.org/wiki/Computer_graphics">computer graphics</a>, <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a>, and <a href="https://en.wikipedia.org/wiki/Data_visualization">data visualization</a>. </p>
-                </div><!--//profile-->
-            </div><!--//container-->
-        </div><!--//intro-->
-        
-        <div class="contact-info">
-            <div class="container text-center">
-                <ul class="list-inline">
-                    <li class="email list-inline-item"><i class="fas fa-envelope"></i><a href="mailto:me@davidychen.com">me@davidychen.com</a></li>
-                    <!-- <li class="list-inline-item"><i class="fas fa-phone"></i> <a href="tel: 0123456789">0123 456 7890</a></li>-->
-                    <li class="website list-inline-item"><i class="fas fa-globe"></i><a href="#" target="_blank">davidychen.com</a></li>
-                </ul>
-            </div><!--//container-->
-        </div><!--//contact-info-->
-        
-        <div class="page-nav-space-holder d-none d-md-block">
-            <div id="page-nav-wrapper" class="page-nav-wrapper text-center">
-                <div class="container">
-                    <ul id="page-nav" class="nav page-nav list-inline">
-                        <li class="nav-item"><a class="scrollto nav-link" href="#experiences-section">Experiences</a></li>
-                        <li class="nav-item"><a class="scrollto nav-link" href="#education-section">Education</a></li>
-                        <li class="nav-item"><a class="scrollto nav-link" href="#skills-section">Skills</a></li>
-                        <li class="nav-item"><a class="scrollto nav-link" href="#testimonials-section">Testimonials</a></li>
-                        <li class="nav-item"><a class="scrollto nav-link" href="#portfolio-section">Portfolio</a></li>
-                        <li class="nav-item"><a class="scrollto nav-link" href="#contact-section">Contact</a></li>
-                    </ul><!--//page-nav-->
-                </div>
-            </div><!--//page-nav-wrapper-->
-        </div>
-        
-    </header><!--//header-->
-    
-    <div class="wrapper container">
-        <section id="experiences-section" class="experiences-section section">
-            <h2 class="section-title">Work Experiences</h2>
-            <div class="timeline">
-                <div class="item">
-                    <div class="work-place">
-                        <h3 class="place">State Street Global Advisors</h3>
-                        <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>Boston, MA</div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="title">Quantitative Research Analyst Co-op</div>
-                        <div class="time">07/2018 - 12/2018</div>
-                    </div><!--//job-meta-->
-                    <div class="job-desc">
-                        <p><a href="https://www.ssga.com/">State Street Global Advisors</a> (SSGA) is the investment management division of State Street Corporation and the world's fifth largest asset manager, with nearly $2.8 trillion (USD) in assets under management.</p> 
-                        <ul>
-                            <li>Initiated and implemented a portfolio construction Web App hosted on local network with performance analytics</li>
-                            <li>Conducted cross-functional research and developed portfolio selection models integrating ESG with R and SQL</li>
-                            <li>Assessed 12 aspects of 4 sovereign risk data providers and presented to global senior management team</li>
-                        </ul>
-                    </div><!--//job-desc-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="work-place">
-                        <h3 class="place">Industrial Bank Research</h3>
-                        <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>Shanghai, China</div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="title">Software Development Intern</div>
-                        <div class="time">06/2017 - 08/2017</div>
-                    </div><!--//job-meta-->
-                    <div class="job-desc">
-                        <p><a href="https://www.cib.com.cn/en/">Industrial Bank</a> (IB) is one of the first batch of joint-stock commercial banks approved by the State Council and the People's Bank of China, and with a registered capital of 19.052 billion yuan, IB is staying stably among Global Top 50 Banks.</p> 
-                        <ul>
-                            <li>Developed an application (in C++) with Wind database plugin to automatically generate bank credit rating reports</li>
-                            <li>Designed a SQL database to store 500 banks Financial data from Wind, allowing modification and coupled with Excel</li>
-                            <li>Enabled analysts to adjust weights, view result, and produce reports with graphs for different periods</li>
-                        </ul>
-                    </div><!--//job-desc-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="work-place">
-                        <h3 class="place">A.T. Kearney</h3>
-                        <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>Shanghai, China</div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="title">Part-time Data Analyst</div>
-                        <div class="time">06/2017 - 08/2017</div>
-                    </div><!--//job-meta-->
-                    <div class="job-desc">
-                        <p><a href="https://www.atkearney.com/">A.T. Kearney</a> is an American global management consulting firm that focuses on strategic and operational CEO-agenda issues facing businesses, governments and institutions around the globe.</p> 
-                        <ul>
-                            <li>Developed and optimized cost and service model (in SQL) for largest semiconductor dealer in Asia-Pacific</li>
-                            <li>Implemented graph search algorithm using Java Database Connectivity to find least cost and fastest logistic routes</li>
-                            <li>Reduced 15% stock keeping units (SKUs) and realized 30% of saving in both time and transportation</li>
-                        </ul>
-                    </div><!--//job-desc-->
-                </div><!--//item-->
-                
-                
-            </div><!--//timeline-->
+        <header class="header">
+            <div class="top-bar container-fluid">
+                <div class="actions">
+                    <a class="btn d-none d-md-inline-block" href="mailto:me@davidychen.com"><i class="fas fa-paper-plane" aria-hidden="true"></i> Email Me</a>
+                    <a class="btn" href="assets/files/Resume_David.pdf"><i class="fas fa-download" aria-hidden="true"></i> Download My Resume</a>
+                </div><!--//actions-->
+                <ul class="social list-inline">
+                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/david-ychen/"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com/davidychen1"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/davidychen"><i class="fab fa-github-alt" aria-hidden="true"></i></a></li>
+                </ul><!--//social-->
+            </div><!--//top-bar-->
             
-        </section><!--//section-->
+            <div class="intro">
+                <div class="container text-center">
+                    <img class="profile-image" src="assets/images/profile.png" alt="">
+                    <h1 class="name">David Chen</h1>
+                    <div class="title">Software Developer</div>
+                    <div class="profile">
+                        <p >I am currently a master student studying Computer Science at <a href="https://www.khoury.northeastern.edu/">Khoury College of Computer and Information Sciences</a>, <a href="https://www.northeastern.edu/">Northeastern University</a>. I finished my undergrad at <a href="http://english.sufe.edu.cn/">Shanghai University of Finance and Economics</a> where I got a B.S. in Public Finance and my first master at <a href="https://case.edu/">Case Western Reserve University</a> with M.S. in Finance. My interests lie in <a href="https://en.wikipedia.org/wiki/Computer_graphics">computer graphics</a>, <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a>, and <a href="https://en.wikipedia.org/wiki/Data_visualization">data visualization</a>. </p>
+                    </div><!--//profile-->
+                </div><!--//container-->
+            </div><!--//intro-->
+            
+            <div class="contact-info">
+                <div class="container text-center">
+                    <ul class="list-inline">
+                        <li class="email list-inline-item"><i class="fas fa-envelope"></i><a href="mailto:me@davidychen.com">me@davidychen.com</a></li>
+                        <!-- <li class="list-inline-item"><i class="fas fa-phone"></i> <a href="tel: 0123456789">0123 456 7890</a></li>-->
+                        <li class="website list-inline-item"><i class="fas fa-globe"></i><a href="#" target="_blank">davidychen.com</a></li>
+                    </ul>
+                </div><!--//container-->
+            </div><!--//contact-info-->
+            
+            <div class="page-nav-space-holder d-none d-md-block">
+                <div id="page-nav-wrapper" class="page-nav-wrapper text-center">
+                    <div class="container">
+                        <ul id="page-nav" class="nav page-nav list-inline">
+                            <li class="nav-item"><a class="scrollto nav-link" href="#experiences-section">Experiences</a></li>
+                            <li class="nav-item"><a class="scrollto nav-link" href="#education-section">Education</a></li>
+                            <li class="nav-item"><a class="scrollto nav-link" href="#skills-section">Skills</a></li>
+                            <li class="nav-item"><a class="scrollto nav-link" href="#testimonials-section">Testimonials</a></li>
+                            <li class="nav-item"><a class="scrollto nav-link" href="#portfolio-section">Portfolio</a></li>
+                            <li class="nav-item"><a class="scrollto nav-link" href="#contact-section">Contact</a></li>
+                        </ul><!--//page-nav-->
+                    </div>
+                </div><!--//page-nav-wrapper-->
+            </div>
+            
+        </header><!--//header-->
         
-        <section id="education-section" class="education-section section">
-            <h2 class="section-title">Education</h2>
-            <div class="row">
-                <div class="item col-12 col-md-4">
-                    <div class="item-inner">
-                        <h3 class="degree">MSc Computer Science</h3>
-                        <div class="education-body">
-                            <a href="https://www.northeastern.edu/">Northeastern University</a>
-                        </div><!--//education-body-->
-                        <div class="time">2017 - 2019</div>
-                        <div class="desc">
-                            <ul>
-                                <li>Chair and founder of <a href="https://www.ieee.org/membership/students/branches/index.html">IEEE Student Branch</a> </li>
-                                <li>Chair and founder of <a href="https://www.acm.org/chapters/students">ACM Student Chapter</a></li>
-                            </ul>
+        <div class="wrapper container">
+            <section id="experiences-section" class="experiences-section section">
+                <h2 class="section-title">Work Experiences</h2>
+                <div class="timeline">
+                    <div class="item">
+                        <div class="work-place">
+                            <h3 class="place">State Street Global Advisors</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>Boston, MA</div>
                         </div>
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-                <div class="item col-12 col-md-4">
-                    <div class="item-inner">
-                        <h3 class="degree">MSc Management-Finance</h3>
-                        <div class="education-body">
-                            <a href="https://case.edu/">Case Western Reserve University</a>
-                        </div><!--//education-body-->
-                        <div class="time">2015 - 2017</div>
-                        <div class="desc">
+                        <div class="job-meta">
+                            <div class="title">Quantitative Research Analyst Co-op</div>
+                            <div class="time">07/2018 - 12/2018</div>
+                        </div><!--//job-meta-->
+                        <div class="job-desc">
+                            <p><a href="https://www.ssga.com/">State Street Global Advisors</a> (SSGA) is the investment management division of State Street Corporation and the world's fifth largest asset manager, with nearly $2.8 trillion (USD) in assets under management.</p> 
                             <ul>
-                                <li>
-                                    Vice-President of <a href="https://community.case.edu/gsc/about/">Graduate Student Council</a>
-                                </li>
-                                <li>President of <a href="https://weatherhead.case.edu/employers/recruiting/student-clubs#bodyContent_mainCol">Multicultural Club</a></li>
+                                <li>Initiated and implemented a portfolio construction Web App hosted on local network with performance analytics</li>
+                                <li>Conducted cross-functional research and developed portfolio selection models integrating ESG with R and SQL</li>
+                                <li>Assessed 12 aspects of 4 sovereign risk data providers and presented to global senior management team</li>
                             </ul>
+                        </div><!--//job-desc-->
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <div class="work-place">
+                            <h3 class="place">Industrial Bank Research</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>Shanghai, China</div>
                         </div>
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-                <div class="item col-12 col-md-4">
-                    <div class="item-inner">
-                        <h3 class="degree">BSc Public Finance</h3>
-                        <div class="education-body">
-                            <a href="http://english.sufe.edu.cn/">Shanghai University of Finance and Economics</a>
-                        </div><!--//education-body-->
-                        <div class="time">2011 - 2015</div>
-                        <div class="desc">
+                        <div class="job-meta">
+                            <div class="title">Software Development Intern</div>
+                            <div class="time">06/2017 - 08/2017</div>
+                        </div><!--//job-meta-->
+                        <div class="job-desc">
+                            <p><a href="https://www.cib.com.cn/en/">Industrial Bank</a> (IB) is one of the first batch of joint-stock commercial banks approved by the State Council and the People's Bank of China, and with a registered capital of 19.052 billion yuan, IB is staying stably among Global Top 50 Banks.</p> 
                             <ul>
-                                <li>President of Unilever Club</li>
+                                <li>Developed an application (in C++) with Wind database plugin to automatically generate bank credit rating reports</li>
+                                <li>Designed a SQL database to store 500 banks Financial data from Wind, allowing modification and coupled with Excel</li>
+                                <li>Enabled analysts to adjust weights, view result, and produce reports with graphs for different periods</li>
                             </ul>
+                        </div><!--//job-desc-->
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <div class="work-place">
+                            <h3 class="place">A.T. Kearney</h3>
+                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>Shanghai, China</div>
                         </div>
-                    </div><!--//item-inner-->
-                </div><!--//item-->
+                        <div class="job-meta">
+                            <div class="title">Part-time Data Analyst</div>
+                            <div class="time">06/2017 - 08/2017</div>
+                        </div><!--//job-meta-->
+                        <div class="job-desc">
+                            <p><a href="https://www.atkearney.com/">A.T. Kearney</a> is an American global management consulting firm that focuses on strategic and operational CEO-agenda issues facing businesses, governments and institutions around the globe.</p> 
+                            <ul>
+                                <li>Developed and optimized cost and service model (in SQL) for largest semiconductor dealer in Asia-Pacific</li>
+                                <li>Implemented graph search algorithm using Java Database Connectivity to find least cost and fastest logistic routes</li>
+                                <li>Reduced 15% stock keeping units (SKUs) and realized 30% of saving in both time and transportation</li>
+                            </ul>
+                        </div><!--//job-desc-->
+                    </div><!--//item-->
+                    
+                    
+                </div><!--//timeline-->
                 
-            </div><!--//row-->
-        </section><!--//section-->
-        
-        
-        <section id="skills-section" class="skills-section section text-center">
-            <h2 class="section-title">Professional Skills</h2>
-            <div class="top-skills">
-                <h3 class="subtitle">Top Skills</h3>
+            </section><!--//section-->
+            
+            <section id="education-section" class="education-section section">
+                <h2 class="section-title">Education</h2>
                 <div class="row">
                     <div class="item col-12 col-md-4">
                         <div class="item-inner">
-                            <div class="chart-easy-pie text-center">
-                                <div class="chart-theme-1 chart" data-percent="95"><span>95</span>%</div>
-                            </div>
-                            <h4 class="skill-name">Python</h4>
-                            <div class="level">Advanced, 4 years</div>
+                            <h3 class="degree">MSc Computer Science</h3>
+                            <div class="education-body">
+                                <a href="https://www.northeastern.edu/">Northeastern University</a>
+                            </div><!--//education-body-->
+                            <div class="time">2017 - 2019</div>
                             <div class="desc">
-                                <p>
-                                    <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5001#_ga=2.224590354.901188050.1548721606-1166941903.1509937140">CS 5001</a> – Intensive Foundations of Computer Science (TA)
-                                    <br>
-                                    <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5100#_ga=2.254007808.901188050.1548721606-1166941903.1509937140">CS 5100</a> – Foundations of Artificial Intelligence</p>
-                                </div>
-                            </div><!--//item-inner-->
-                        </div><!--//item-->
-                        <div class="item col-12 col-md-4">
-                            <div class="item-inner">
-                                <div class="chart-easy-pie text-center">
-                                    <div class="chart-theme-1 chart" data-percent="90"><span>90</span>%</div>
-                                </div>
-                                <h4 class="skill-name">Java</h4>
-                                <div class="level">Advanced, 3 years</div>
-                                <div class="desc">
-                                    <p>
-                                        <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5010#_ga=2.262470532.901188050.1548721606-1166941903.1509937140">CS 5010</a> – Programming Design Paradigm
-                                        <br>
-                                        <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5200#_ga=2.262470532.901188050.1548721606-1166941903.1509937140">CS 5200</a> – Database Management Systems
-                                        <br>
-                                        <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5800#_ga=2.266533638.901188050.1548721606-1166941903.1509937140">CS 5800</a> – Algorithms (TA)
-                                        <br>
-                                        <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=6650#_ga=2.199638566.901188050.1548721606-1166941903.1509937140">CS 6650</a> – Building Scalable Distributed Systems
-                                    </p> 
-                                </div>
-                            </div><!--//item-inner-->
-                        </div><!--//item-->
-                        <div class="item col-12 col-md-4">
-                            <div class="item-inner">
-                                <div class="chart-easy-pie text-center">
-                                    <div class="chart-theme-1 chart" data-percent="85"><span>85</span>%</div>
-                                </div>
-                                <h4 class="skill-name">C/C++</h4>
-                                <div class="level">Advanced, 3 years</div>
-                                <div class="desc">
-                                    <p>
-                                        <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5600#_ga=2.187359008.901188050.1548721606-1166941903.1509937140">CS 5600</a> – Computer Systems
-                                        <br>
-                                        <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5800#_ga=2.266533638.901188050.1548721606-1166941903.1509937140">CS 5800</a> – Algorithms
-                                    </p>
-                                </div>
-                            </div><!--//item-inner-->
-                        </div><!--//item-->
-                    </div><!--//row-->
-                </div><!--//top-skills-->
-
-                <div class="other-skills">
-                    <h3 class="subtitle">Other Skills</h3>
-                    <div class="misc-skills">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">LaTeX</span>
-                        <br>
-                        <span class="skill-tag">Assembly</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">MATLAB</span>
-                        <span class="skill-tag">Mandarin</span>
-                    </div>
-                </div><!--//other-skills-->
-
-            </section><!--//skills-section-->
-
-            <section id="testimonials-section" class="testimonials-section section">
-                <h2 class="section-title">Testimonials</h2>
-
-                <div id="testimonials-carousel" class="testimonials-carousel carousel slide" data-interval="8000">
-
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#testimonials-carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#testimonials-carousel" data-slide-to="1"></li>
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item carousel-item active">
-                            <blockquote class="quote">      
-                                <p><span class="icon-holder"><i class="fas fa-quote-left"></i></span>                            
-                                David is a very smart boy. I'm Vivian, his line manager during his intern in L'oreal China. He was mainly in charge of Finance system reporting and Project follow up. His quick-learning ability and fast-execution force impressed me a lot. Moreover, we all like him. He built a very good inter connection within L'oreal. Based on his performance, I believe he will go to a higher career stage. And I hope he has a bright future. </p>
-                            </blockquote>    
-                            <div class="source">
-                                <div class="name">Vivian Zhu</div>
-                                <div class="position">Senior Business Finance Manager, Channel</div>
-                            </div><!--//source-->   
-
-                        </div><!--//item-->
-                        <div class="item carousel-item">
-                            <blockquote class="quote">
-                                <p><span class="icon-holder"><i class="fas fa-quote-left"></i></span> 
-                                Through my work with David, I can attest to his excellent orhanizational, interpersonal, and leadership skills. He was an incredible leader for graduate students at CWRU and his absence will be felt. That said, I believe he established tradistions and protocol that will make it easier for future leaders to engage graduate students in similar programming. </p>
-
-                            </blockquote>
-                            <div class="source">
-                                <div class="name">Angela Lowery</div>
-                                <div class="position">Director, Financial Empowerment, United Way of Summit County</div>
-                            </div><!--//source-->   
-
-                        </div><!--//item-->
-
-                    </div><!--//carousel-inner-->
-                </div><!--//testimonials-carousel-->
-
-            </section><!--//section-->
-
-
-            <section id="portfolio-section" class="portfolio-section section">
-                <h2 class="section-title">Portfolio</h2>
-                <ul id="filters" class="filters clearfix">
-                    <li class="type active" data-filter="*">All</li>
-                    <li class="type" data-filter=".project">Projects</li>
-                    <li class="type" data-filter=".photography">Photography</li>
-                    <li class="type" data-filter=".art">Art</li>
-                </ul><!--//filters-->
-                <div class="items-wrapper isotope row">
-
-                    <div class="item project col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-checker-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-checker-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title github"><a href="https://github.com/davidychen/TunnelCheckers">Tunnel Checker Game</a></h3>
-                                <div class="meta">Python</div>
-                                <!-- <div class="action"><a href="#">View on Github</a></div>-->
-                            </div><!--//content-->           
+                                <ul>
+                                    <li>Chair and founder of <a href="https://www.ieee.org/membership/students/branches/index.html">IEEE Student Branch</a> </li>
+                                    <li>Chair and founder of <a href="https://www.acm.org/chapters/students">ACM Student Chapter</a></li>
+                                </ul>
+                            </div>
                         </div><!--//item-inner-->
                     </div><!--//item-->
-
-                    <div class="item art col-lg-3 col-6">
+                    <div class="item col-12 col-md-4">
                         <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-birthday-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-birthday-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Birthday Card</h3>
-                                <div class="meta">Pen Drawing</div>
-                            </div><!--//content-->              
+                            <h3 class="degree">MSc Management-Finance</h3>
+                            <div class="education-body">
+                                <a href="https://case.edu/">Case Western Reserve University</a>
+                            </div><!--//education-body-->
+                            <div class="time">2015 - 2017</div>
+                            <div class="desc">
+                                <ul>
+                                    <li>
+                                        Vice-President of <a href="https://community.case.edu/gsc/about/">Graduate Student Council</a>
+                                    </li>
+                                    <li>President of <a href="https://weatherhead.case.edu/employers/recruiting/student-clubs#bodyContent_mainCol">Multicultural Club</a></li>
+                                </ul>
+                            </div>
                         </div><!--//item-inner-->
                     </div><!--//item-->
-
-                    <div class="item art col-lg-3 col-6">
+                    <div class="item col-12 col-md-4">
                         <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-cardcaptor-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-cardcaptor-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Cardcaptor Clow Card</h3>
-                                <div class="meta">Procreate</div>
-                            </div><!--//content-->             
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item art col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-cat-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-cat-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Cat</h3>
-                                <div class="meta">Enlight</div>
-                            </div><!--//content-->            
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item photography col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-disney-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-disney-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Disney Park</h3>
-                                <div class="meta">Photography</div>
-                            </div><!--//content-->            
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item art col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-ellipse-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-ellipse-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Ellipse</h3>
-                                <div class="meta">R</div>
-                            </div><!--//content-->            
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item photography col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-leaves-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-leaves-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Japanese Tea Garden</h3>
-                                <div class="meta">Photography</div>
-                            </div><!--//content-->            
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item photography col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-tahoe-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-tahoe-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Lake Tahoe</h3>
-                                <div class="meta">Photography</div>
-                            </div><!--//content-->           
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item photography col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-missionpeak-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-missionpeak-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Mission Peak</h3>
-                                <div class="meta">Photography</div>
-                            </div><!--//content-->            
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item photography col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-northeastern-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-northeastern-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Northeastern University</h3>
-                                <div class="meta">Photography</div>
-                            </div><!--//content-->            
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item photography col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-lereve-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-lereve-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Le Rêve - The Dream</h3>
-                                <div class="meta">Photography</div>
-                            </div><!--//content-->            
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item art col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-charmander-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-charmander-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Pokemon Charmander</h3>
-                                <div class="meta">Procreate</div>
-                            </div><!--//content-->              
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-                    <div class="item art col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-pokemon-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-pokemon-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Pokenmon Puzzle</h3>
-                                <div class="meta">Procreate</div>
-                            </div><!--//content-->           
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item project col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-replay-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-replay-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title github"><a href="https://replayforkids.org/">Replay For Kids</a></h3>
-                                <div class="meta">Web Development</div>
-                            </div><!--//content-->               
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item art col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-scream-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-scream-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Scream</h3>
-                                <div class="meta">Paint</div>
-                            </div><!--//content-->           
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item photography col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-shanghai-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-shanghai-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Shanghai</h3>
-                                <div class="meta">Photography</div>
-                            </div><!--//content-->           
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
-
-                    <div class="item art col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-totoro-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-totoro-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Totoro</h3>
-                                <div class="meta">Pen Drawing</div>
-                            </div><!--//content-->           
+                            <h3 class="degree">BSc Public Finance</h3>
+                            <div class="education-body">
+                                <a href="http://english.sufe.edu.cn/">Shanghai University of Finance and Economics</a>
+                            </div><!--//education-body-->
+                            <div class="time">2011 - 2015</div>
+                            <div class="desc">
+                                <ul>
+                                    <li>President of Unilever Club</li>
+                                </ul>
+                            </div>
                         </div><!--//item-inner-->
                     </div><!--//item-->
                     
-                    <div class="item photography col-lg-3 col-6">
-                        <div class="item-inner">
-                            <figure class="figure">
-                                <img class="img-fluid" src="assets/images/portfolio/portfolio-yosemite-small.jpg" alt="" />
-                                <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
-                                <a class="link-mask" href="assets/images/portfolio/portfolio-yosemite-big.jpg"></a>
-                            </figure>
-                            <div class="content text-left">
-                                <h3 class="sub-title">Yosemite</h3>
-                                <div class="meta">Photography</div>
-                            </div><!--//content-->             
-                        </div><!--//item-inner-->
-                    </div><!--//item-->
+                </div><!--//row-->
+            </section><!--//section-->
+            
+            
+            <section id="skills-section" class="skills-section section text-center">
+                <h2 class="section-title">Professional Skills</h2>
+                <div class="top-skills">
+                    <h3 class="subtitle">Top Skills</h3>
+                    <div class="row">
+                        <div class="item col-12 col-md-4">
+                            <div class="item-inner">
+                                <div class="chart-easy-pie text-center">
+                                    <div class="chart-theme-1 chart" data-percent="95"><span>95</span>%</div>
+                                </div>
+                                <h4 class="skill-name">Python</h4>
+                                <div class="level">Advanced, 4 years</div>
+                                <div class="desc">
+                                    <p>
+                                        <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5001#_ga=2.224590354.901188050.1548721606-1166941903.1509937140">CS 5001</a> – Intensive Foundations of Computer Science (TA)
+                                        <br>
+                                        <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5100#_ga=2.254007808.901188050.1548721606-1166941903.1509937140">CS 5100</a> – Foundations of Artificial Intelligence</p>
+                                    </div>
+                                </div><!--//item-inner-->
+                            </div><!--//item-->
+                            <div class="item col-12 col-md-4">
+                                <div class="item-inner">
+                                    <div class="chart-easy-pie text-center">
+                                        <div class="chart-theme-1 chart" data-percent="90"><span>90</span>%</div>
+                                    </div>
+                                    <h4 class="skill-name">Java</h4>
+                                    <div class="level">Advanced, 3 years</div>
+                                    <div class="desc">
+                                        <p>
+                                            <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5010#_ga=2.262470532.901188050.1548721606-1166941903.1509937140">CS 5010</a> – Programming Design Paradigm
+                                            <br>
+                                            <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5200#_ga=2.262470532.901188050.1548721606-1166941903.1509937140">CS 5200</a> – Database Management Systems
+                                            <br>
+                                            <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5800#_ga=2.266533638.901188050.1548721606-1166941903.1509937140">CS 5800</a> – Algorithms (TA)
+                                            <br>
+                                            <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=6650#_ga=2.199638566.901188050.1548721606-1166941903.1509937140">CS 6650</a> – Building Scalable Distributed Systems
+                                        </p> 
+                                    </div>
+                                </div><!--//item-inner-->
+                            </div><!--//item-->
+                            <div class="item col-12 col-md-4">
+                                <div class="item-inner">
+                                    <div class="chart-easy-pie text-center">
+                                        <div class="chart-theme-1 chart" data-percent="85"><span>85</span>%</div>
+                                    </div>
+                                    <h4 class="skill-name">C/C++</h4>
+                                    <div class="level">Advanced, 3 years</div>
+                                    <div class="desc">
+                                        <p>
+                                            <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5600#_ga=2.187359008.901188050.1548721606-1166941903.1509937140">CS 5600</a> – Computer Systems
+                                            <br>
+                                            <a href="https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?cat_term_in=201930&subj_code_in=CS&crse_numb_in=5800#_ga=2.266533638.901188050.1548721606-1166941903.1509937140">CS 5800</a> – Algorithms
+                                        </p>
+                                    </div>
+                                </div><!--//item-inner-->
+                            </div><!--//item-->
+                        </div><!--//row-->
+                    </div><!--//top-skills-->
 
-                </div><!--//item-wrapper-->
+                    <div class="other-skills">
+                        <h3 class="subtitle">Other Skills</h3>
+                        <div class="misc-skills">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">LaTeX</span>
+                            <br>
+                            <span class="skill-tag">Assembly</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">Mandarin</span>
+                        </div>
+                    </div><!--//other-skills-->
 
-                <div class="more_btn">
-                    <a class="btn internal-link" href="portfolio.html" target="_self">Go to Portfolio</a>
-                </div>
+                </section><!--//skills-section-->
+
+                <section id="testimonials-section" class="testimonials-section section">
+                    <h2 class="section-title">Testimonials</h2>
+
+                    <div id="testimonials-carousel" class="testimonials-carousel carousel slide" data-interval="8000">
+
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#testimonials-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#testimonials-carousel" data-slide-to="1"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item carousel-item active">
+                                <blockquote class="quote">      
+                                    <p><span class="icon-holder"><i class="fas fa-quote-left"></i></span>                            
+                                    David is a very smart boy. I'm Vivian, his line manager during his intern in L'oreal China. He was mainly in charge of Finance system reporting and Project follow up. His quick-learning ability and fast-execution force impressed me a lot. Moreover, we all like him. He built a very good inter connection within L'oreal. Based on his performance, I believe he will go to a higher career stage. And I hope he has a bright future. </p>
+                                </blockquote>    
+                                <div class="source">
+                                    <div class="name">Vivian Zhu</div>
+                                    <div class="position">Senior Business Finance Manager, Channel</div>
+                                </div><!--//source-->   
+
+                            </div><!--//item-->
+                            <div class="item carousel-item">
+                                <blockquote class="quote">
+                                    <p><span class="icon-holder"><i class="fas fa-quote-left"></i></span> 
+                                    Through my work with David, I can attest to his excellent orhanizational, interpersonal, and leadership skills. He was an incredible leader for graduate students at CWRU and his absence will be felt. That said, I believe he established tradistions and protocol that will make it easier for future leaders to engage graduate students in similar programming. </p>
+
+                                </blockquote>
+                                <div class="source">
+                                    <div class="name">Angela Lowery</div>
+                                    <div class="position">Director, Financial Empowerment, United Way of Summit County</div>
+                                </div><!--//source-->   
+
+                            </div><!--//item-->
+
+                        </div><!--//carousel-inner-->
+                    </div><!--//testimonials-carousel-->
+
+                </section><!--//section-->
+
+
+                <section id="portfolio-section" class="portfolio-section section">
+                    <h2 class="section-title">Portfolio</h2>
+                    <ul id="filters" class="filters clearfix">
+                        <li class="type active" data-filter="*">All</li>
+                        <li class="type" data-filter=".project">Projects</li>
+                        <li class="type" data-filter=".photography">Photography</li>
+                        <li class="type" data-filter=".art">Art</li>
+                    </ul><!--//filters-->
+                    <div class="items-wrapper isotope row">
+
+                        <div class="item project col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-checker-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-checker-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title github"><a href="https://github.com/davidychen/TunnelCheckers">Tunnel Checker Game</a></h3>
+                                    <div class="meta">Python</div>
+                                    <!-- <div class="action"><a href="#">View on Github</a></div>-->
+                                </div><!--//content-->           
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item art col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-birthday-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-birthday-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Birthday Card</h3>
+                                    <div class="meta">Pen Drawing</div>
+                                </div><!--//content-->              
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item art col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-cardcaptor-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-cardcaptor-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Cardcaptor Clow Card</h3>
+                                    <div class="meta">Procreate</div>
+                                </div><!--//content-->             
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item art col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-cat-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-cat-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Cat</h3>
+                                    <div class="meta">Enlight</div>
+                                </div><!--//content-->            
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item photography col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-disney-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-disney-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Disney Park</h3>
+                                    <div class="meta">Photography</div>
+                                </div><!--//content-->            
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item art col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-ellipse-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-ellipse-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Ellipse</h3>
+                                    <div class="meta">R</div>
+                                </div><!--//content-->            
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item photography col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-leaves-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-leaves-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Japanese Tea Garden</h3>
+                                    <div class="meta">Photography</div>
+                                </div><!--//content-->            
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item photography col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-tahoe-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-tahoe-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Lake Tahoe</h3>
+                                    <div class="meta">Photography</div>
+                                </div><!--//content-->           
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item photography col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-missionpeak-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-missionpeak-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Mission Peak</h3>
+                                    <div class="meta">Photography</div>
+                                </div><!--//content-->            
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item photography col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-northeastern-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-northeastern-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Northeastern University</h3>
+                                    <div class="meta">Photography</div>
+                                </div><!--//content-->            
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item photography col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-lereve-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-lereve-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Le Rêve - The Dream</h3>
+                                    <div class="meta">Photography</div>
+                                </div><!--//content-->            
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item art col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-charmander-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-charmander-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Pokemon Charmander</h3>
+                                    <div class="meta">Procreate</div>
+                                </div><!--//content-->              
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+                        <div class="item art col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-pokemon-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-pokemon-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Pokenmon Puzzle</h3>
+                                    <div class="meta">Procreate</div>
+                                </div><!--//content-->           
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item project col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-replay-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-replay-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title github"><a href="https://replayforkids.org/">Replay For Kids</a></h3>
+                                    <div class="meta">Web Development</div>
+                                </div><!--//content-->               
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item art col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-scream-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-scream-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Scream</h3>
+                                    <div class="meta">Paint</div>
+                                </div><!--//content-->           
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item photography col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-shanghai-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-shanghai-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Shanghai</h3>
+                                    <div class="meta">Photography</div>
+                                </div><!--//content-->           
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                        <div class="item art col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-totoro-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-totoro-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Totoro</h3>
+                                    <div class="meta">Pen Drawing</div>
+                                </div><!--//content-->           
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+                        
+                        <div class="item photography col-lg-3 col-6">
+                            <div class="item-inner">
+                                <figure class="figure">
+                                    <img class="img-fluid" src="assets/images/portfolio/portfolio-yosemite-small.jpg" alt="" />
+                                    <div class="light" ><img src="assets/images/portfolio/icon.png" alt=""></div>
+                                    <a class="link-mask" href="assets/images/portfolio/portfolio-yosemite-big.jpg"></a>
+                                </figure>
+                                <div class="content text-left">
+                                    <h3 class="sub-title">Yosemite</h3>
+                                    <div class="meta">Photography</div>
+                                </div><!--//content-->             
+                            </div><!--//item-inner-->
+                        </div><!--//item-->
+
+                    </div><!--//item-wrapper-->
+                    <!--
+                    <div class="more_btn">
+                        <a class="btn internal-link" href="portfolio.html" target="_self">Go to Portfolio</a>
+                    </div>
+                    -->
 
             </section><!--//section-->
 
