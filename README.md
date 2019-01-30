@@ -1,5 +1,5 @@
 # HomepageDavidChen
-David Chen's Homepage ([Demo](http://davidychen.com/HomepageDavidChen/)) is designed
+David Chen's Homepage ([Demo](http://davidychen.com)) is designed
 as my responsive homepage including:
 - Experience
 - Education
@@ -31,14 +31,10 @@ This webpage uses a number of open source projects to work properly:
 
 ## Installation
 ```sh
-$ git clone https://github.com/davidychen/HomepageDavidChen.git
+$ git clone https://github.com/davidychen/davidychen.github.io.git
 $ cd HomepageDavidChen
 $ open index.html
 ```
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 
 ## Contributors
 
