@@ -25,28 +25,6 @@ $(document).ready(function() {
 
   });
 
-  /* ======= Config Panel ======= */
-  var top = $('.config-panel').offset().top - parseFloat($('.config-panel').css('marginTop').replace(/auto/, 0));
-  var last = top;
-  $(window).scroll(function(event) {
-    clearTimeout($.data(this, 'scrollTimer'));
-    $.data(this, 'scrollTimer', setTimeout(function() {
-      var y = $(this).scrollTop();
-      var difference = y + top;
-      var t = Math.sqrt(Math.abs(difference - last)) + 500;
-      if (y >= top) {
-        $('.config-panel').animate({
-          top: difference
-        }, t, "easeOutBounce"); //easeOutElastic
-      } else {
-        $('.config-panel').animate({
-          top: difference
-        }, t, "easeOutBounce");
-      }
-      last = difference;
-    }, 200))
-  });
-
   /* ======= Fixed page nav when scrolled ======= */
   $(window).on('scroll resize load', function() {
 
@@ -68,7 +46,7 @@ $(document).ready(function() {
   /* ======= Chart ========= */
 
   $('.chart').easyPieChart({
-    barColor: '#FF9800', //Pie chart colour
+    barColor: '#3F51B5', //Pie chart colour
     trackColor: '#e8e8e8',
     scaleColor: false,
     lineWidth: 5,
