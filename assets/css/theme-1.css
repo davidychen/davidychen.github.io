@@ -399,12 +399,12 @@
  	z-index: 10
  }
 
- .timeline .work-place {
+ .timeline .work-place .company-logo {
  	/* position: relative */
  	text-align: justify;
  }
 
- .timeline .work-place:after{
+ .timeline .work-place .company-logo:after{
     content: '';
     display: inline-block;
     width: 100%;
