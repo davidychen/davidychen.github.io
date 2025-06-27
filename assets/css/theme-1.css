@@ -399,11 +399,7 @@
  	z-index: 10
  }
 
- .timeline .work-place .company-logo {
-  	width: 60px;
-	height: 60px;
-	display: block;
-	border-radius: 10%;
+ .timeline .work-place {
  	/* position: relative */
  	text-align: justify;
  }
