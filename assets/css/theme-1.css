@@ -401,14 +401,14 @@
 
  .timeline .work-place .company-logo {
   	width: 60px;
-	  height: 60px;
-	  display: block;
-	  border-radius: 10%;
+	height: 60px;
+	display: block;
+	border-radius: 10%;
  	/* position: relative */
  	text-align: justify;
  }
 
- .timeline .work-place .company-logo:after{
+ .timeline .work-place:after{
     content: '';
     display: inline-block;
     width: 100%;
