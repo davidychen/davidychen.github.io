@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-	color: #3F51B5;
+	color: #FF9800;
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-ms-transition: all 0.4s ease-in-out;
@@ -32,7 +32,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: #2b387c
+	color: #b36a00
 }
 
 a:focus {
@@ -49,7 +49,7 @@ p {
  }
 
 .btn, a.btn {
-	background: #32408f;
+	background: #cc7a00;
 	color: #fff;
 	padding: 8px 15px;
 	-webkit-border-radius: 2px;
@@ -78,7 +78,7 @@ p {
 	-moz-transition: all 0.4s ease-in-out;
 	-ms-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
-	background: #32408f;
+	background: #cc7a00;
 	color: #fff;
 	text-align: center;
 	display: inline-block;
@@ -99,7 +99,7 @@ p {
 }
 
 #topcontrol:hover {
-	background: #2b387c;
+	background: #b36a00;
 	color: #fff
 }
 
@@ -111,7 +111,7 @@ p {
 }
 
 .header {
-	background: #3F51B5;
+	background: #FF9800;
 	color: #fff
 }
 
@@ -195,7 +195,7 @@ p {
 }
 
 .header .intro {
-	background: #3849a2;
+	background: #e68900;
 	padding-top: 90px;
 	padding-bottom: 60px;
 	position: relative;
@@ -208,7 +208,7 @@ p {
 }
 
 .header .contact-info {
-	background: #32408f;
+	background: #cc7a00;
 	padding-top: 30px;
 	padding-bottom: 30px;
 	font-size: 16px
@@ -245,7 +245,7 @@ p {
 }
 
 .page-nav-wrapper {
-	background: #2b387c;
+	background: #b36a00;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	position: absolute;
@@ -262,7 +262,7 @@ p {
 	left: 0;
 	width: 100%;
 	z-index: 100;
-	background: #3F51B5
+	background: #FF9800
 }
 
 .page-nav-wrapper a {
@@ -342,7 +342,7 @@ p {
 }
 
 .timeline {
-	border-left: 3px solid #3F51B5;
+	border-left: 3px solid #FF9800;
 	border-bottom-right-radius: 2px;
 	border-top-right-radius: 2px;
 	position: relative;
@@ -376,7 +376,7 @@ p {
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
 	background: #fff;
-	border: 3px solid #3F51B5
+	border: 3px solid #FF9800
 }
 
 .timeline .item:after {
@@ -395,7 +395,7 @@ p {
 	-moz-background-clip: padding;
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	background: #3F51B5;
+	background: #FF9800;
 	z-index: 10
 }
 
@@ -448,7 +448,7 @@ p {
 
 .timeline .job-meta .title {
 	font-size: 18px;
-	color: #3F51B5;
+	color: #FF9800;
 	max-width: 220px
 }
 
@@ -594,7 +594,7 @@ p {
 	width: 36px;
 	height: 36px;
 	display: inline-block;
-	background: #3F51B5;
+	background: #FF9800;
 	color: #fff;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -636,7 +636,7 @@ p {
 }
 
 .testimonials-section .carousel-indicators li.active {
-	background-color: #3F51B5;
+	background-color: #FF9800;
 	width: 10px;
 	height: 10px;
 	margin: 0;
@@ -669,7 +669,7 @@ p {
 
 .portfolio-section .filters .type.active {
 	color: #3F51B5;
-	border-bottom: 2px solid #3F51B5
+	border-bottom: 2px solid #FF9800
 }
 
 .portfolio-section .item {
@@ -684,7 +684,7 @@ p {
 }
 
 .portfolio-section .item-inner {
-	background: #3F51B5;
+	background: #FF9800;
 	color: #fff;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -809,7 +809,7 @@ p {
 }
 
 .contact-section .service-list .svg-inline--fa {
-	color: #3F51B5;
+	color: #FF9800;
 	margin-right: 5px
 }
 
