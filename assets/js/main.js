@@ -66,6 +66,130 @@ $(document).ready(function() {
     }
   });
 
+  /* ============================================
+   * PRELOADER + ENTRANCE SEQUENCE
+   * ============================================ */
+  function initPreloader() {
+    var preloader = document.querySelector('.preloader');
+    var counter = document.querySelector('.preloader-counter');
+    if (!preloader || !counter) return;
+
+    // Lock scroll during preloader
+    document.documentElement.style.overflow = 'hidden';
+
+    // Hide hero elements initially
+    gsap.set('.header .intro', { visibility: 'hidden' });
+    gsap.set('.header .top-bar', { opacity: 0, y: -20 });
+    gsap.set('.header .contact-info', { opacity: 0, y: 20 });
+    gsap.set('.header .scroll-indicator', { opacity: 0 });
+    gsap.set('.header .profile-image', { opacity: 0, scale: 0.8 });
+    gsap.set('.header .profile', { opacity: 0, y: 20 });
+
+    // Split hero text
+    var nameSplit = new SplitText('.header .name', { type: 'words', wordsClass: 'word' });
+    var titleSplit = new SplitText('.header .intro .title', { type: 'words', wordsClass: 'word' });
+
+    // Wrap each word parent in overflow hidden for mask effect
+    nameSplit.words.forEach(function(word) {
+      word.parentNode.style.overflow = 'hidden';
+      word.style.display = 'inline-block';
+    });
+    titleSplit.words.forEach(function(word) {
+      word.parentNode.style.overflow = 'hidden';
+      word.style.display = 'inline-block';
+    });
+
+    gsap.set(nameSplit.words, { yPercent: 100, opacity: 0 });
+    gsap.set(titleSplit.words, { yPercent: 100, opacity: 0 });
+
+    // Build timeline
+    var tl = gsap.timeline({
+      onComplete: function() {
+        // Unlock scroll
+        document.documentElement.style.overflow = '';
+        // Remove preloader from DOM
+        preloader.style.display = 'none';
+        // Activate Lenis if available
+        if (lenis) lenis.start();
+      }
+    });
+
+    // Pause Lenis during preloader
+    if (lenis) lenis.stop();
+
+    var counterObj = { val: 0 };
+
+    tl
+      // Counter: 0 → 100%
+      .to(counterObj, {
+        val: 100,
+        duration: 1.5,
+        ease: 'power2.inOut',
+        onUpdate: function() {
+          counter.textContent = Math.round(counterObj.val);
+        }
+      })
+      // Overlay slides up
+      .to(preloader, {
+        yPercent: -100,
+        duration: 0.5,
+        ease: 'power4.inOut',
+      })
+      // Show hero intro container
+      .set('.header .intro', { visibility: 'visible' })
+      // Profile image
+      .to('.header .profile-image', {
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      })
+      // Name split text reveal
+      .to(nameSplit.words, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'power3.out',
+      }, '-=0.2')
+      // Title split text reveal
+      .to(titleSplit.words, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'power3.out',
+      }, '-=0.5')
+      // Profile paragraph
+      .to('.header .profile', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      }, '-=0.4')
+      // Top bar + contact info
+      .to('.header .top-bar', {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      }, '-=0.4')
+      .to('.header .contact-info', {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      }, '-=0.3')
+      // Scroll indicator
+      .to('.header .scroll-indicator', {
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      }, '-=0.2');
+  }
+
+  initPreloader();
+
   /* ======= Lightbox ======= */
   $('.items-wrapper .link-mask').simpleLightbox({
     nav: false
