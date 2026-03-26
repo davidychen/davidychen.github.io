@@ -1,3 +1,32 @@
+/* ============================================
+ * GSAP + LENIS CORE SETUP
+ * ============================================ */
+
+// Remove no-js class (JS is working)
+document.documentElement.classList.remove('no-js');
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
+// Detect touch device
+const isTouch = !window.matchMedia('(hover: hover)').matches;
+
+// Initialize Lenis smooth scroll (desktop only)
+let lenis;
+if (!isTouch) {
+  lenis = new Lenis({
+    duration: 1.2,
+    easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+    orientation: 'vertical',
+    smoothWheel: true,
+  });
+
+  // Sync Lenis with GSAP ScrollTrigger
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
+}
+
 $(document).ready(function() {
 
   /* ======= External links open in new tab ======== */
@@ -9,16 +38,18 @@ $(document).ready(function() {
     offset: 100
   });
 
-  /* ======= ScrollTo ======= */
+  /* ======= ScrollTo (Lenis-powered) ======= */
   $('.scrollto').on('click', function(e) {
     var target = this.hash || $(this).data('target');
     if (!target) return;
     e.preventDefault();
-    $('body').scrollTo(target, 800, {
-      offset: -60,
-      'axis': 'y',
-      easing: 'easeInOutCubic'
-    });
+    if (lenis) {
+      lenis.scrollTo(target, { offset: -60 });
+    } else {
+      // Touch fallback
+      var el = document.querySelector(target);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 
   /* ======= Fixed page nav with glassmorphism ======= */
@@ -34,6 +65,369 @@ $(document).ready(function() {
       $('body').addClass('sticky-page-nav');
     }
   });
+
+  /* ============================================
+   * PRELOADER + ENTRANCE SEQUENCE
+   * ============================================ */
+  function initPreloader() {
+    var preloader = document.querySelector('.preloader');
+    var counter = document.querySelector('.preloader-counter');
+    if (!preloader || !counter) return;
+
+    // Lock scroll during preloader
+    document.documentElement.style.overflow = 'hidden';
+
+    // Hide hero elements initially
+    gsap.set('.header .intro', { visibility: 'hidden' });
+    gsap.set('.header .top-bar', { opacity: 0, y: -20 });
+    gsap.set('.header .contact-info', { opacity: 0, y: 20 });
+    gsap.set('.header .scroll-indicator', { opacity: 0 });
+    gsap.set('.header .profile-image', { opacity: 0, scale: 0.8 });
+    gsap.set('.header .profile', { opacity: 0, y: 20 });
+
+    // Split hero text
+    var nameSplit = new SplitText('.header .name', { type: 'words', wordsClass: 'word' });
+    var titleSplit = new SplitText('.header .intro .title', { type: 'words', wordsClass: 'word' });
+
+    // Wrap each word parent in overflow hidden for mask effect
+    nameSplit.words.forEach(function(word) {
+      word.parentNode.style.overflow = 'hidden';
+      word.style.display = 'inline-block';
+    });
+    titleSplit.words.forEach(function(word) {
+      word.parentNode.style.overflow = 'hidden';
+      word.style.display = 'inline-block';
+    });
+
+    gsap.set(nameSplit.words, { yPercent: 100, opacity: 0 });
+    gsap.set(titleSplit.words, { yPercent: 100, opacity: 0 });
+
+    // Build timeline
+    var tl = gsap.timeline({
+      onComplete: function() {
+        // Unlock scroll
+        document.documentElement.style.overflow = '';
+        // Remove preloader from DOM
+        preloader.style.display = 'none';
+        // Activate Lenis if available
+        if (lenis) lenis.start();
+        // Recalculate ScrollTrigger positions now that scroll is unlocked
+        ScrollTrigger.refresh();
+      }
+    });
+
+    // Pause Lenis during preloader
+    if (lenis) lenis.stop();
+
+    var counterObj = { val: 0 };
+
+    tl
+      // Counter: 0 → 100%
+      .to(counterObj, {
+        val: 100,
+        duration: 1.5,
+        ease: 'power2.inOut',
+        onUpdate: function() {
+          counter.textContent = Math.round(counterObj.val);
+        }
+      })
+      // Overlay slides up
+      .to(preloader, {
+        yPercent: -100,
+        duration: 0.5,
+        ease: 'power4.inOut',
+      })
+      // Show hero intro container
+      .set('.header .intro', { visibility: 'visible' })
+      // Profile image
+      .to('.header .profile-image', {
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      })
+      // Name split text reveal
+      .to(nameSplit.words, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'power3.out',
+      }, '-=0.2')
+      // Title split text reveal
+      .to(titleSplit.words, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: 'power3.out',
+      }, '-=0.5')
+      // Profile paragraph
+      .to('.header .profile', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      }, '-=0.4')
+      // Top bar + contact info
+      .to('.header .top-bar', {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      }, '-=0.4')
+      .to('.header .contact-info', {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      }, '-=0.3')
+      // Scroll indicator
+      .to('.header .scroll-indicator', {
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      }, '-=0.2');
+  }
+
+  initPreloader();
+
+  /* ============================================
+   * SCROLL REVEAL ANIMATIONS (GSAP ScrollTrigger)
+   * ============================================ */
+  function initScrollReveals() {
+    // Helper: gsap.fromTo with ScrollTrigger (avoids gsap.from natural-state capture bug)
+    function reveal(target, fromVars, toVars, triggerEl) {
+      gsap.fromTo(target, fromVars, Object.assign({}, toVars, {
+        scrollTrigger: {
+          trigger: triggerEl || target,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        }
+      }));
+    }
+
+    // Section titles — fade up
+    gsap.utils.toArray('.section-title').forEach(function(el) {
+      reveal(el, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
+    });
+
+    // About section content
+    reveal('.about-content', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
+
+    // Experience timeline items — alternate left/right
+    gsap.utils.toArray('.timeline .item').forEach(function(item, i) {
+      var direction = i % 2 === 0 ? 40 : -40;
+      reveal(item, { x: direction, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
+    });
+
+    // Impact cards — staggered
+    gsap.fromTo('.impact-card',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '.impact-section .row', start: 'top 85%', toggleActions: 'play none none none' }
+      }
+    );
+
+    // Education cards — staggered
+    gsap.fromTo('#education-section .item-inner',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '#education-section .row', start: 'top 85%', toggleActions: 'play none none none' }
+      }
+    );
+
+    // Skills section — top skills staggered
+    gsap.fromTo('#skills-section .top-skills .item-inner',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power2.out',
+        scrollTrigger: { trigger: '#skills-section .top-skills', start: 'top 85%', toggleActions: 'play none none none' }
+      }
+    );
+
+    // Skill tags — staggered scale-in
+    gsap.fromTo('.skill-tag',
+      { scale: 0.95, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'power2.out',
+        scrollTrigger: { trigger: '.other-skills', start: 'top 85%', toggleActions: 'play none none none' }
+      }
+    );
+
+    // Testimonials section
+    reveal('#testimonials-section .testimonials-carousel',
+      { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+      '#testimonials-section'
+    );
+
+    // Portfolio grid — staggered (C)
+    gsap.fromTo('.isotope .item',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: { each: 0.1, from: 'start' }, ease: 'power2.out',
+        scrollTrigger: { trigger: '.isotope', start: 'top 85%', toggleActions: 'play none none none' }
+      }
+    );
+
+    // Contact section
+    reveal('#contact-section .intro',
+      { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+      '#contact-section'
+    );
+
+    // Section divider metrics
+    gsap.utils.toArray('.section-divider .divider-content').forEach(function(el) {
+      reveal(el, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
+    });
+  }
+
+  initScrollReveals();
+
+  /* ============================================
+   * CUSTOM CURSOR (F)
+   * ============================================ */
+  function initCustomCursor() {
+    if (isTouch) return;
+
+    var dot = document.querySelector('.cursor-dot');
+    var ring = document.querySelector('.cursor-ring');
+    if (!dot || !ring) return;
+
+    document.body.classList.add('cursor-active');
+
+    // Track whether cursor is on a dark section
+    var onDark = false;
+    var darkColor = 'rgba(255,255,255,0.5)';
+    var lightColor = 'rgba(102,126,234,0.5)';
+
+    var dotX = gsap.quickTo(dot, 'x', { duration: 0.1, ease: 'power2.out' });
+    var dotY = gsap.quickTo(dot, 'y', { duration: 0.1, ease: 'power2.out' });
+    var ringX = gsap.quickTo(ring, 'x', { duration: 0.35, ease: 'power2.out' });
+    var ringY = gsap.quickTo(ring, 'y', { duration: 0.35, ease: 'power2.out' });
+
+    window.addEventListener('mousemove', function(e) {
+      dotX(e.clientX - 3);
+      dotY(e.clientY - 3);
+      ringX(e.clientX - 18);
+      ringY(e.clientY - 18);
+
+      // Detect dark sections (header, section-dividers, footer)
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      var isDark = false;
+      if (el) {
+        isDark = !!el.closest('.header, .section-divider, .footer');
+      }
+      if (isDark !== onDark) {
+        onDark = isDark;
+        if (isDark) {
+          document.body.classList.add('cursor-light');
+        } else {
+          document.body.classList.remove('cursor-light');
+        }
+      }
+    });
+
+    var shown = false;
+    window.addEventListener('mousemove', function() {
+      if (!shown) {
+        dot.style.opacity = '1';
+        ring.style.opacity = '1';
+        shown = true;
+      }
+    });
+
+    // Hover effects on interactive elements
+    var interactiveEls = document.querySelectorAll('a, button, .btn, .type, .nav-link');
+    interactiveEls.forEach(function(el) {
+      el.addEventListener('mouseenter', function() {
+        var hoverColor = onDark ? 'rgba(255,255,255,0.2)' : 'rgba(102,126,234,0.2)';
+        gsap.to(ring, { scale: 1.5, borderColor: hoverColor, duration: 0.3 });
+      });
+      el.addEventListener('mouseleave', function() {
+        var baseColor = onDark ? darkColor : lightColor;
+        gsap.to(ring, { scale: 1, borderColor: baseColor, duration: 0.3 });
+      });
+    });
+
+    // Larger hover on portfolio items
+    var portfolioItems = document.querySelectorAll('.item-inner');
+    portfolioItems.forEach(function(el) {
+      el.addEventListener('mouseenter', function() {
+        gsap.to(ring, { scale: 2, borderColor: 'rgba(102,126,234,0.15)', duration: 0.3 });
+      });
+      el.addEventListener('mouseleave', function() {
+        var baseColor = onDark ? darkColor : lightColor;
+        gsap.to(ring, { scale: 1, borderColor: baseColor, duration: 0.3 });
+      });
+    });
+
+    // Click pulse
+    window.addEventListener('mousedown', function() {
+      gsap.to(ring, { scale: 0.8, duration: 0.15 });
+    });
+    window.addEventListener('mouseup', function() {
+      gsap.to(ring, { scale: 1, duration: 0.3, ease: 'elastic.out(1, 0.3)' });
+    });
+  }
+
+  initCustomCursor();
+
+  /* ============================================
+   * MAGNETIC BUTTONS (B)
+   * ============================================ */
+  function initMagneticButtons() {
+    if (isTouch) return;
+
+    var magneticEls = document.querySelectorAll('.btn, #page-nav-wrapper .nav-link, .social a, #filters .type');
+
+    magneticEls.forEach(function(el) {
+      el.addEventListener('mousemove', function(e) {
+        var rect = el.getBoundingClientRect();
+        var centerX = rect.left + rect.width / 2;
+        var centerY = rect.top + rect.height / 2;
+        var x = (e.clientX - centerX) * 0.3;
+        var y = (e.clientY - centerY) * 0.3;
+
+        gsap.to(el, {
+          x: x,
+          y: y,
+          duration: 0.3,
+          ease: 'power3.out',
+        });
+      });
+
+      el.addEventListener('mouseleave', function() {
+        gsap.to(el, {
+          x: 0,
+          y: 0,
+          duration: 0.7,
+          ease: 'elastic.out(1, 0.3)',
+        });
+      });
+    });
+  }
+
+  initMagneticButtons();
+
+  /* ============================================
+   * PARALLAX TILT CARDS (J)
+   * ============================================ */
+  function initTiltCards() {
+    if (isTouch) return;
+
+    var tiltElements = document.querySelectorAll('.portfolio-section .item-inner, #education-section .item-inner');
+
+    if (typeof VanillaTilt !== 'undefined') {
+      VanillaTilt.init(Array.from(tiltElements), {
+        max: 5,
+        speed: 400,
+        glare: true,
+        'max-glare': 0.08,
+        perspective: 1000,
+        scale: 1.02,
+      });
+    }
+  }
+
+  initTiltCards();
 
   /* ======= Lightbox ======= */
   $('.items-wrapper .link-mask').simpleLightbox({
@@ -62,100 +456,45 @@ $(document).ready(function() {
   });
 
   /* ============================================
-   * SCROLL ANIMATIONS (Intersection Observer)
-   * ============================================ */
-  function initScrollAnimations() {
-    var animatedElements = document.querySelectorAll('[data-animate]');
-
-    if (!('IntersectionObserver' in window)) {
-      // Fallback: show everything immediately
-      animatedElements.forEach(function(el) {
-        el.classList.add('animated');
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var el = entry.target;
-          var delay = parseInt(el.getAttribute('data-delay')) || 0;
-          setTimeout(function() {
-            el.classList.add('animated');
-          }, delay);
-          observer.unobserve(el);
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    animatedElements.forEach(function(el) {
-      observer.observe(el);
-    });
-  }
-
-  initScrollAnimations();
-
-  /* ============================================
-   * SKILL PROGRESS BARS
+   * SKILL PROGRESS BARS (GSAP version)
    * ============================================ */
   function initSkillBars() {
-    var fills = document.querySelectorAll('.skill-progress-bar .fill');
-    var percents = document.querySelectorAll('.skill-percent');
+    var bars = document.querySelectorAll('.skill-progress-bar');
+    if (!bars.length) return;
 
-    if (!('IntersectionObserver' in window)) {
-      fills.forEach(function(fill) {
-        fill.style.width = fill.getAttribute('data-percent') + '%';
-      });
-      return;
-    }
+    bars.forEach(function(bar) {
+      var fill = bar.querySelector('.fill');
+      var targetPercent = parseInt(fill.getAttribute('data-percent'));
+      var card = bar.closest('.item-inner');
+      var percentEl = card ? card.querySelector('.skill-percent') : null;
 
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var bar = entry.target;
-          var fill = bar.querySelector('.fill');
-          var targetPercent = parseInt(fill.getAttribute('data-percent'));
+      ScrollTrigger.create({
+        trigger: bar,
+        start: 'top 85%',
+        once: true,
+        onEnter: function() {
+          gsap.to(fill, {
+            width: targetPercent + '%',
+            duration: 1.5,
+            ease: 'power2.out',
+            delay: 0.2,
+          });
 
-          // Animate the bar fill
-          setTimeout(function() {
-            fill.style.width = targetPercent + '%';
-          }, 200);
-
-          // Find and animate the corresponding percentage number
-          var card = bar.closest('.item-inner');
-          if (card) {
-            var percentEl = card.querySelector('.skill-percent');
-            if (percentEl) {
-              animateCounter(percentEl, 0, targetPercent, 1500);
-            }
+          if (percentEl) {
+            var counterObj = { val: 0 };
+            gsap.to(counterObj, {
+              val: targetPercent,
+              duration: 1.5,
+              ease: 'power2.out',
+              delay: 0.2,
+              onUpdate: function() {
+                percentEl.textContent = Math.round(counterObj.val) + '%';
+              }
+            });
           }
-
-          observer.unobserve(bar);
         }
       });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.skill-progress-bar').forEach(function(bar) {
-      observer.observe(bar);
     });
-  }
-
-  function animateCounter(el, start, end, duration) {
-    var startTime = null;
-    function step(timestamp) {
-      if (!startTime) startTime = timestamp;
-      var progress = Math.min((timestamp - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      var current = Math.round(start + (end - start) * eased);
-      el.textContent = current + '%';
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    }
-    requestAnimationFrame(step);
   }
 
   initSkillBars();
@@ -236,33 +575,5 @@ $(document).ready(function() {
   }
 
   initParticles();
-
-  /* ============================================
-   * SMOOTH PAGE TRANSITIONS
-   * ============================================ */
-  // Fade sections as they scroll into/out of the strong viewport
-  function initSectionTransitions() {
-    var sections = document.querySelectorAll('.section');
-
-    if (!('IntersectionObserver' in window)) return;
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, {
-      threshold: 0.05,
-      rootMargin: '0px 0px -20px 0px'
-    });
-
-    sections.forEach(function(section) {
-      observer.observe(section);
-    });
-  }
-
-  initSectionTransitions();
 
 });
