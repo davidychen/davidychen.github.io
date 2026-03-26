@@ -364,6 +364,11 @@ $(document).ready(function() {
 
     document.body.classList.add('cursor-active');
 
+    // Track whether cursor is on a dark section
+    var onDark = false;
+    var darkColor = 'rgba(255,255,255,0.5)';
+    var lightColor = 'rgba(102,126,234,0.5)';
+
     var dotX = gsap.quickTo(dot, 'x', { duration: 0.1, ease: 'power2.out' });
     var dotY = gsap.quickTo(dot, 'y', { duration: 0.1, ease: 'power2.out' });
     var ringX = gsap.quickTo(ring, 'x', { duration: 0.35, ease: 'power2.out' });
@@ -374,6 +379,21 @@ $(document).ready(function() {
       dotY(e.clientY - 3);
       ringX(e.clientX - 18);
       ringY(e.clientY - 18);
+
+      // Detect dark sections (header, section-dividers, footer)
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      var isDark = false;
+      if (el) {
+        isDark = !!el.closest('.header, .section-divider, .footer');
+      }
+      if (isDark !== onDark) {
+        onDark = isDark;
+        if (isDark) {
+          document.body.classList.add('cursor-light');
+        } else {
+          document.body.classList.remove('cursor-light');
+        }
+      }
     });
 
     var shown = false;
@@ -385,26 +405,32 @@ $(document).ready(function() {
       }
     });
 
+    // Hover effects on interactive elements
     var interactiveEls = document.querySelectorAll('a, button, .btn, .type, .nav-link');
     interactiveEls.forEach(function(el) {
       el.addEventListener('mouseenter', function() {
-        gsap.to(ring, { scale: 1.5, borderColor: 'rgba(255,255,255,0.2)', duration: 0.3 });
+        var hoverColor = onDark ? 'rgba(255,255,255,0.2)' : 'rgba(102,126,234,0.2)';
+        gsap.to(ring, { scale: 1.5, borderColor: hoverColor, duration: 0.3 });
       });
       el.addEventListener('mouseleave', function() {
-        gsap.to(ring, { scale: 1, borderColor: 'rgba(255,255,255,0.5)', duration: 0.3 });
+        var baseColor = onDark ? darkColor : lightColor;
+        gsap.to(ring, { scale: 1, borderColor: baseColor, duration: 0.3 });
       });
     });
 
+    // Larger hover on portfolio items
     var portfolioItems = document.querySelectorAll('.item-inner');
     portfolioItems.forEach(function(el) {
       el.addEventListener('mouseenter', function() {
-        gsap.to(ring, { scale: 2, borderColor: 'rgba(255,255,255,0.15)', duration: 0.3 });
+        gsap.to(ring, { scale: 2, borderColor: 'rgba(102,126,234,0.15)', duration: 0.3 });
       });
       el.addEventListener('mouseleave', function() {
-        gsap.to(ring, { scale: 1, borderColor: 'rgba(255,255,255,0.5)', duration: 0.3 });
+        var baseColor = onDark ? darkColor : lightColor;
+        gsap.to(ring, { scale: 1, borderColor: baseColor, duration: 0.3 });
       });
     });
 
+    // Click pulse
     window.addEventListener('mousedown', function() {
       gsap.to(ring, { scale: 0.8, duration: 0.15 });
     });

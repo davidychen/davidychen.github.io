@@ -1335,8 +1335,9 @@ p {
   text-align: center;
   padding: 30px 20px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(102,126,234,0.15);
   background: var(--light-surface);
+  box-shadow: 0 2px 12px rgba(102,126,234,0.08);
   transition: all var(--transition-base);
   margin-bottom: 20px;
 }
@@ -1603,7 +1604,7 @@ html.no-js .preloader,
 .cursor-dot {
   width: 6px;
   height: 6px;
-  background: #fff;
+  background: var(--primary);
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -1611,13 +1612,13 @@ html.no-js .preloader,
   pointer-events: none;
   z-index: 9999;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, background 0.3s;
 }
 
 .cursor-ring {
   width: 36px;
   height: 36px;
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(102, 126, 234, 0.5);
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -1625,7 +1626,15 @@ html.no-js .preloader,
   pointer-events: none;
   z-index: 9998;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+
+/* Light cursor on dark backgrounds (header, dividers) */
+.cursor-light .cursor-dot {
+  background: #fff;
+}
+.cursor-light .cursor-ring {
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .cursor-active .cursor-dot,
