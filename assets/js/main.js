@@ -267,11 +267,19 @@ $(document).ready(function() {
       }
     );
 
-    // Contact section
-    reveal('#contact-section .intro',
-      { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
-      '#contact-section'
-    );
+    // Contact section (use onEnter callback — more reliable at page bottom)
+    var contactIntro = document.querySelector('#contact-section .intro');
+    if (contactIntro) {
+      gsap.set(contactIntro, { y: 30, opacity: 0 });
+      ScrollTrigger.create({
+        trigger: '#contact-section',
+        start: 'top bottom',
+        once: true,
+        onEnter: function() {
+          gsap.to(contactIntro, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
+        }
+      });
+    }
 
     // Section divider metrics
     gsap.utils.toArray('.section-divider .divider-content').forEach(function(el) {

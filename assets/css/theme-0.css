@@ -1185,10 +1185,14 @@ p {
 /* ===== CONTACT ===== */
 .contact-section .intro {
   position: relative;
-  padding: 30px;
-  padding-left: 190px;
+  padding: 40px;
+  padding-left: 200px;
   font-size: 16px;
   color: var(--text-secondary);
+  background: var(--light-surface);
+  border: 1px solid rgba(102,126,234,0.15);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 12px rgba(102,126,234,0.08);
 }
 
 .contact-section .intro .profile-image {
@@ -1196,8 +1200,9 @@ p {
   height: 120px;
   border-radius: 50%;
   position: absolute;
-  left: 30px;
+  left: 40px;
   box-shadow: var(--shadow-md);
+  border: 3px solid rgba(102,126,234,0.2);
 }
 
 .contact-section .intro p {
