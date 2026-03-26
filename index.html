@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108111972-2"></script>
@@ -32,6 +32,11 @@ gtag('config', 'UA-108111972-2');
 
 <body>
 
+    <!-- Preloader -->
+    <div class="preloader">
+        <span class="preloader-counter">0</span>
+    </div>
+
     <header class="header">
         <!-- Hero background video -->
         <video class="video-bg" autoplay muted loop playsinline>
@@ -55,7 +60,7 @@ gtag('config', 'UA-108111972-2');
             </ul><!--//social-->
         </div><!--//top-bar-->
 
-        <div class="intro">
+        <div class="intro hero-hidden">
             <div class="container text-center">
                 <img class="profile-image" src="assets/images/profile.png" alt="">
                 <h1 class="name">David Chen</h1>
@@ -99,7 +104,7 @@ gtag('config', 'UA-108111972-2');
     <div class="wrapper container">
 
         <!-- ===== ABOUT ===== -->
-        <section id="about-section" class="about-section section" data-animate="fade-up">
+        <section id="about-section" class="about-section section">
             <h2 class="section-title">About</h2>
             <div class="about-content">
                 <p class="about-lead">I'm a Senior Technical Program Manager at DoorDash with over six years of experience shipping products that operate at the intersection of fintech, logistics, and marketplace infrastructure.</p>
@@ -109,10 +114,10 @@ gtag('config', 'UA-108111972-2');
         </section><!--//about-section-->
 
         <!-- ===== EXPERIENCE ===== -->
-        <section id="experiences-section" class="experiences-section section" data-animate="fade-up">
+        <section id="experiences-section" class="experiences-section section">
             <h2 class="section-title">Experience</h2>
             <div class="timeline">
-                <div class="item" data-animate="fade-right">
+                <div class="item">
                     <div class="timeline-card">
                         <div class="work-place">
                             <img class="company-logo" src="assets/images/experience/doordash.jpeg" alt="">
@@ -135,7 +140,7 @@ gtag('config', 'UA-108111972-2');
                     </div><!--//timeline-card-->
                 </div><!--//item-->
 
-                <div class="item" data-animate="fade-left">
+                <div class="item">
                     <div class="timeline-card">
                         <div class="work-place">
                             <img class="company-logo" src="assets/images/experience/doordash.jpeg" alt="">
@@ -177,31 +182,31 @@ gtag('config', 'UA-108111972-2');
     <div class="wrapper container">
 
         <!-- ===== IMPACT HIGHLIGHTS ===== -->
-        <section id="impact-section" class="impact-section section" data-animate="fade-up">
+        <section id="impact-section" class="impact-section section">
             <h2 class="section-title">Impact Highlights</h2>
             <div class="row">
-                <div class="col-6 col-md-3" data-animate="fade-up" data-delay="0">
+                <div class="col-6 col-md-3">
                     <div class="impact-card">
                         <div class="impact-number">$100M+</div>
                         <div class="impact-label">Annual Grocery GMV Unlocked</div>
                         <div class="impact-desc">HSA/FSA & SNAP/EBT payments</div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3" data-animate="fade-up" data-delay="150">
+                <div class="col-6 col-md-3">
                     <div class="impact-card">
                         <div class="impact-number">$20M+</div>
                         <div class="impact-label">Revenue Driven</div>
                         <div class="impact-desc">Rewards Mastercard & Pay with Points</div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3" data-animate="fade-up" data-delay="300">
+                <div class="col-6 col-md-3">
                     <div class="impact-card">
                         <div class="impact-number">10+</div>
                         <div class="impact-label">Cross-Functional Teams Led</div>
                         <div class="impact-desc">Engineering, Ops, Legal, Finance</div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3" data-animate="fade-up" data-delay="450">
+                <div class="col-6 col-md-3">
                     <div class="impact-card">
                         <div class="impact-number">6+</div>
                         <div class="impact-label">Years at DoorDash</div>
@@ -212,10 +217,10 @@ gtag('config', 'UA-108111972-2');
         </section><!--//impact-section-->
 
         <!-- ===== EDUCATION ===== -->
-        <section id="education-section" class="education-section section" data-animate="fade-up">
+        <section id="education-section" class="education-section section">
             <h2 class="section-title">Education</h2>
             <div class="row">
-                <div class="item col-12 col-md-4" data-animate="fade-up" data-delay="0">
+                <div class="item col-12 col-md-4">
                     <div class="item-inner">
                         <h3 class="degree">MSc Computer Science</h3>
                         <div class="education-body">
@@ -224,7 +229,7 @@ gtag('config', 'UA-108111972-2');
                         <div class="time">2017 - 2019</div>
                     </div><!--//item-inner-->
                 </div><!--//item-->
-                <div class="item col-12 col-md-4" data-animate="fade-up" data-delay="200">
+                <div class="item col-12 col-md-4">
                     <div class="item-inner">
                         <h3 class="degree">MSc Management-Finance</h3>
                         <div class="education-body">
@@ -233,7 +238,7 @@ gtag('config', 'UA-108111972-2');
                         <div class="time">2015 - 2017</div>
                     </div><!--//item-inner-->
                 </div><!--//item-->
-                <div class="item col-12 col-md-4" data-animate="fade-up" data-delay="400">
+                <div class="item col-12 col-md-4">
                     <div class="item-inner">
                         <h3 class="degree">BSc Public Finance</h3>
                         <div class="education-body">
@@ -246,11 +251,11 @@ gtag('config', 'UA-108111972-2');
         </section><!--//section-->
 
         <!-- ===== SKILLS ===== -->
-        <section id="skills-section" class="skills-section section text-center" data-animate="fade-up">
+        <section id="skills-section" class="skills-section section text-center">
             <h2 class="section-title">Core Competencies</h2>
             <div class="top-skills">
                 <div class="row">
-                    <div class="item col-12 col-md-4" data-animate="fade-up" data-delay="0">
+                    <div class="item col-12 col-md-4">
                         <div class="item-inner">
                             <div class="skill-progress">
                                 <div class="skill-progress-header">
@@ -267,7 +272,7 @@ gtag('config', 'UA-108111972-2');
                             </div>
                         </div><!--//item-inner-->
                     </div><!--//item-->
-                    <div class="item col-12 col-md-4" data-animate="fade-up" data-delay="200">
+                    <div class="item col-12 col-md-4">
                         <div class="item-inner">
                             <div class="skill-progress">
                                 <div class="skill-progress-header">
@@ -284,7 +289,7 @@ gtag('config', 'UA-108111972-2');
                             </div>
                         </div><!--//item-inner-->
                     </div><!--//item-->
-                    <div class="item col-12 col-md-4" data-animate="fade-up" data-delay="400">
+                    <div class="item col-12 col-md-4">
                         <div class="item-inner">
                             <div class="skill-progress">
                                 <div class="skill-progress-header">
@@ -304,22 +309,22 @@ gtag('config', 'UA-108111972-2');
                 </div><!--//row-->
             </div><!--//top-skills-->
 
-            <div class="other-skills" data-animate="fade-up">
+            <div class="other-skills">
                 <h3 class="subtitle">Additional Expertise</h3>
                 <div class="misc-skills">
-                    <span class="skill-tag" data-animate="scale-in" data-delay="0">Technical Program Management</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="50">System Design & Architecture Reviews</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="100">Product Requirements & Specifications</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="150">Roadmap Planning & Prioritization</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="200">Incident Management & Escalation</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="250">SQL, Data Pipelines & Dashboards</span>
+                    <span class="skill-tag">Technical Program Management</span>
+                    <span class="skill-tag">System Design & Architecture Reviews</span>
+                    <span class="skill-tag">Product Requirements & Specifications</span>
+                    <span class="skill-tag">Roadmap Planning & Prioritization</span>
+                    <span class="skill-tag">Incident Management & Escalation</span>
+                    <span class="skill-tag">SQL, Data Pipelines & Dashboards</span>
                     <br>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="300">API Design & Integration Testing</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="350">Agile Methodologies & Sprint Planning</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="400">Executive Communication & Stakeholder Management</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="450">Regulatory Compliance & Launch Readiness</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="500">Vendor Management & 3P Integrations</span>
-                    <span class="skill-tag" data-animate="scale-in" data-delay="550">Growth Experimentation & A/B Testing</span>
+                    <span class="skill-tag">API Design & Integration Testing</span>
+                    <span class="skill-tag">Agile Methodologies & Sprint Planning</span>
+                    <span class="skill-tag">Executive Communication & Stakeholder Management</span>
+                    <span class="skill-tag">Regulatory Compliance & Launch Readiness</span>
+                    <span class="skill-tag">Vendor Management & 3P Integrations</span>
+                    <span class="skill-tag">Growth Experimentation & A/B Testing</span>
                 </div>
             </div><!--//other-skills-->
 
@@ -342,7 +347,7 @@ gtag('config', 'UA-108111972-2');
     <div class="wrapper container">
 
         <!-- ===== TESTIMONIALS ===== -->
-        <section id="testimonials-section" class="testimonials-section section" data-animate="fade-up">
+        <section id="testimonials-section" class="testimonials-section section">
             <h2 class="section-title">Testimonials</h2>
 
             <div id="testimonials-carousel" class="testimonials-carousel carousel slide" data-interval="8000">
@@ -401,7 +406,7 @@ gtag('config', 'UA-108111972-2');
 
 
         <!-- ===== CREATIVE WORK ===== -->
-        <section id="portfolio-section" class="portfolio-section section" data-animate="fade-up">
+        <section id="portfolio-section" class="portfolio-section section">
             <h2 class="section-title">Creative Work</h2>
             <ul id="filters" class="filters clearfix">
                 <li class="type active" data-filter="*">All</li>
@@ -698,7 +703,7 @@ gtag('config', 'UA-108111972-2');
         </section><!--//section-->
 
         <!-- ===== CONTACT ===== -->
-        <section id="contact-section" class="contact-section section" data-animate="fade-up">
+        <section id="contact-section" class="contact-section section">
             <h2 class="section-title">Let's Connect</h2>
             <div class="intro">
                 <img class="profile-image" src="assets/images/profile.png" alt="">
@@ -731,6 +736,10 @@ gtag('config', 'UA-108111972-2');
         </div><!--//container-->
     </footer>
 
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <!-- Javascript -->
     <script src="assets/plugins/jquery-3.3.1.min.js"></script>
     <script src="assets/plugins/popper.min.js"></script>
@@ -741,6 +750,13 @@ gtag('config', 'UA-108111972-2');
     <script src="assets/plugins/isotope.pkgd.min.js"></script>
     <script src="assets/plugins/jquery.easing.1.3.js"></script>
     <script src="assets/plugins/lightbox/simpleLightbox.min.js"></script>
+
+    <!-- Animation Libraries -->
+    <script src="assets/plugins/gsap/gsap.min.js"></script>
+    <script src="assets/plugins/gsap/ScrollTrigger.min.js"></script>
+    <script src="assets/plugins/gsap/SplitText.min.js"></script>
+    <script src="assets/plugins/lenis/lenis.min.js"></script>
+    <script src="assets/plugins/vanilla-tilt/vanilla-tilt.min.js"></script>
 
     <!-- custom js -->
     <script src="assets/js/main.js"></script>
