@@ -501,63 +501,45 @@ $(document).ready(function() {
   });
 
   /* ============================================
-   * SKILL PROGRESS BARS
+   * SKILL PROGRESS BARS (GSAP version)
    * ============================================ */
   function initSkillBars() {
-    var fills = document.querySelectorAll('.skill-progress-bar .fill');
-    var percents = document.querySelectorAll('.skill-percent');
+    var bars = document.querySelectorAll('.skill-progress-bar');
+    if (!bars.length) return;
 
-    if (!('IntersectionObserver' in window)) {
-      fills.forEach(function(fill) {
-        fill.style.width = fill.getAttribute('data-percent') + '%';
-      });
-      return;
-    }
+    bars.forEach(function(bar) {
+      var fill = bar.querySelector('.fill');
+      var targetPercent = parseInt(fill.getAttribute('data-percent'));
+      var card = bar.closest('.item-inner');
+      var percentEl = card ? card.querySelector('.skill-percent') : null;
 
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var bar = entry.target;
-          var fill = bar.querySelector('.fill');
-          var targetPercent = parseInt(fill.getAttribute('data-percent'));
+      ScrollTrigger.create({
+        trigger: bar,
+        start: 'top 85%',
+        once: true,
+        onEnter: function() {
+          gsap.to(fill, {
+            width: targetPercent + '%',
+            duration: 1.5,
+            ease: 'power2.out',
+            delay: 0.2,
+          });
 
-          // Animate the bar fill
-          setTimeout(function() {
-            fill.style.width = targetPercent + '%';
-          }, 200);
-
-          // Find and animate the corresponding percentage number
-          var card = bar.closest('.item-inner');
-          if (card) {
-            var percentEl = card.querySelector('.skill-percent');
-            if (percentEl) {
-              animateCounter(percentEl, 0, targetPercent, 1500);
-            }
+          if (percentEl) {
+            var counterObj = { val: 0 };
+            gsap.to(counterObj, {
+              val: targetPercent,
+              duration: 1.5,
+              ease: 'power2.out',
+              delay: 0.2,
+              onUpdate: function() {
+                percentEl.textContent = Math.round(counterObj.val) + '%';
+              }
+            });
           }
-
-          observer.unobserve(bar);
         }
       });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.skill-progress-bar').forEach(function(bar) {
-      observer.observe(bar);
     });
-  }
-
-  function animateCounter(el, start, end, duration) {
-    var startTime = null;
-    function step(timestamp) {
-      if (!startTime) startTime = timestamp;
-      var progress = Math.min((timestamp - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      var current = Math.round(start + (end - start) * eased);
-      el.textContent = current + '%';
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    }
-    requestAnimationFrame(step);
   }
 
   initSkillBars();
