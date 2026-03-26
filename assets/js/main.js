@@ -352,6 +352,128 @@ $(document).ready(function() {
 
   initScrollReveals();
 
+  /* ============================================
+   * CUSTOM CURSOR (F)
+   * ============================================ */
+  function initCustomCursor() {
+    if (isTouch) return;
+
+    var dot = document.querySelector('.cursor-dot');
+    var ring = document.querySelector('.cursor-ring');
+    if (!dot || !ring) return;
+
+    document.body.classList.add('cursor-active');
+
+    var dotX = gsap.quickTo(dot, 'x', { duration: 0.1, ease: 'power2.out' });
+    var dotY = gsap.quickTo(dot, 'y', { duration: 0.1, ease: 'power2.out' });
+    var ringX = gsap.quickTo(ring, 'x', { duration: 0.35, ease: 'power2.out' });
+    var ringY = gsap.quickTo(ring, 'y', { duration: 0.35, ease: 'power2.out' });
+
+    window.addEventListener('mousemove', function(e) {
+      dotX(e.clientX - 3);
+      dotY(e.clientY - 3);
+      ringX(e.clientX - 18);
+      ringY(e.clientY - 18);
+    });
+
+    var shown = false;
+    window.addEventListener('mousemove', function() {
+      if (!shown) {
+        dot.style.opacity = '1';
+        ring.style.opacity = '1';
+        shown = true;
+      }
+    });
+
+    var interactiveEls = document.querySelectorAll('a, button, .btn, .type, .nav-link');
+    interactiveEls.forEach(function(el) {
+      el.addEventListener('mouseenter', function() {
+        gsap.to(ring, { scale: 1.5, borderColor: 'rgba(255,255,255,0.2)', duration: 0.3 });
+      });
+      el.addEventListener('mouseleave', function() {
+        gsap.to(ring, { scale: 1, borderColor: 'rgba(255,255,255,0.5)', duration: 0.3 });
+      });
+    });
+
+    var portfolioItems = document.querySelectorAll('.item-inner');
+    portfolioItems.forEach(function(el) {
+      el.addEventListener('mouseenter', function() {
+        gsap.to(ring, { scale: 2, borderColor: 'rgba(255,255,255,0.15)', duration: 0.3 });
+      });
+      el.addEventListener('mouseleave', function() {
+        gsap.to(ring, { scale: 1, borderColor: 'rgba(255,255,255,0.5)', duration: 0.3 });
+      });
+    });
+
+    window.addEventListener('mousedown', function() {
+      gsap.to(ring, { scale: 0.8, duration: 0.15 });
+    });
+    window.addEventListener('mouseup', function() {
+      gsap.to(ring, { scale: 1, duration: 0.3, ease: 'elastic.out(1, 0.3)' });
+    });
+  }
+
+  initCustomCursor();
+
+  /* ============================================
+   * MAGNETIC BUTTONS (B)
+   * ============================================ */
+  function initMagneticButtons() {
+    if (isTouch) return;
+
+    var magneticEls = document.querySelectorAll('.btn, #page-nav-wrapper .nav-link, .social a, #filters .type');
+
+    magneticEls.forEach(function(el) {
+      el.addEventListener('mousemove', function(e) {
+        var rect = el.getBoundingClientRect();
+        var centerX = rect.left + rect.width / 2;
+        var centerY = rect.top + rect.height / 2;
+        var x = (e.clientX - centerX) * 0.3;
+        var y = (e.clientY - centerY) * 0.3;
+
+        gsap.to(el, {
+          x: x,
+          y: y,
+          duration: 0.3,
+          ease: 'power3.out',
+        });
+      });
+
+      el.addEventListener('mouseleave', function() {
+        gsap.to(el, {
+          x: 0,
+          y: 0,
+          duration: 0.7,
+          ease: 'elastic.out(1, 0.3)',
+        });
+      });
+    });
+  }
+
+  initMagneticButtons();
+
+  /* ============================================
+   * PARALLAX TILT CARDS (J)
+   * ============================================ */
+  function initTiltCards() {
+    if (isTouch) return;
+
+    var tiltElements = document.querySelectorAll('.portfolio-section .item-inner, #education-section .item-inner');
+
+    if (typeof VanillaTilt !== 'undefined') {
+      VanillaTilt.init(Array.from(tiltElements), {
+        max: 5,
+        speed: 400,
+        glare: true,
+        'max-glare': 0.08,
+        perspective: 1000,
+        scale: 1.02,
+      });
+    }
+  }
+
+  initTiltCards();
+
   /* ======= Lightbox ======= */
   $('.items-wrapper .link-mask').simpleLightbox({
     nav: false
