@@ -111,6 +111,8 @@ $(document).ready(function() {
         preloader.style.display = 'none';
         // Activate Lenis if available
         if (lenis) lenis.start();
+        // Recalculate ScrollTrigger positions now that scroll is unlocked
+        ScrollTrigger.refresh();
       }
     });
 
@@ -194,159 +196,86 @@ $(document).ready(function() {
    * SCROLL REVEAL ANIMATIONS (GSAP ScrollTrigger)
    * ============================================ */
   function initScrollReveals() {
-    // Section titles — fade up
-    gsap.utils.toArray('.section-title').forEach(function(el) {
-      gsap.from(el, {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out',
+    // Helper: gsap.fromTo with ScrollTrigger (avoids gsap.from natural-state capture bug)
+    function reveal(target, fromVars, toVars, triggerEl) {
+      gsap.fromTo(target, fromVars, Object.assign({}, toVars, {
         scrollTrigger: {
-          trigger: el,
+          trigger: triggerEl || target,
           start: 'top 85%',
           toggleActions: 'play none none none',
         }
-      });
+      }));
+    }
+
+    // Section titles — fade up
+    gsap.utils.toArray('.section-title').forEach(function(el) {
+      reveal(el, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
     });
 
     // About section content
-    gsap.from('.about-content', {
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.about-content',
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      }
-    });
+    reveal('.about-content', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
 
     // Experience timeline items — alternate left/right
     gsap.utils.toArray('.timeline .item').forEach(function(item, i) {
       var direction = i % 2 === 0 ? 40 : -40;
-      gsap.from(item, {
-        x: direction,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        }
-      });
+      reveal(item, { x: direction, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
     });
 
     // Impact cards — staggered
-    gsap.from('.impact-card', {
-      y: 40,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.impact-section .row',
-        start: 'top 85%',
-        toggleActions: 'play none none none',
+    gsap.fromTo('.impact-card',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '.impact-section .row', start: 'top 85%', toggleActions: 'play none none none' }
       }
-    });
+    );
 
     // Education cards — staggered
-    gsap.from('#education-section .item-inner', {
-      y: 40,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '#education-section .row',
-        start: 'top 85%',
-        toggleActions: 'play none none none',
+    gsap.fromTo('#education-section .item-inner',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '#education-section .row', start: 'top 85%', toggleActions: 'play none none none' }
       }
-    });
+    );
 
     // Skills section — top skills staggered
-    gsap.from('#skills-section .top-skills .item-inner', {
-      y: 40,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.15,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '#skills-section .top-skills',
-        start: 'top 85%',
-        toggleActions: 'play none none none',
+    gsap.fromTo('#skills-section .top-skills .item-inner',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power2.out',
+        scrollTrigger: { trigger: '#skills-section .top-skills', start: 'top 85%', toggleActions: 'play none none none' }
       }
-    });
+    );
 
     // Skill tags — staggered scale-in
-    gsap.from('.skill-tag', {
-      scale: 0.95,
-      opacity: 0,
-      duration: 0.4,
-      stagger: 0.05,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.other-skills',
-        start: 'top 85%',
-        toggleActions: 'play none none none',
+    gsap.fromTo('.skill-tag',
+      { scale: 0.95, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'power2.out',
+        scrollTrigger: { trigger: '.other-skills', start: 'top 85%', toggleActions: 'play none none none' }
       }
-    });
+    );
 
     // Testimonials section
-    gsap.from('#testimonials-section .testimonials-carousel', {
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '#testimonials-section',
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      }
-    });
+    reveal('#testimonials-section .testimonials-carousel',
+      { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+      '#testimonials-section'
+    );
 
-    // Portfolio grid — staggered (Task 7: C)
-    gsap.from('.isotope .item', {
-      y: 40,
-      opacity: 0,
-      duration: 0.6,
-      stagger: { each: 0.1, from: 'start' },
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.isotope',
-        start: 'top 85%',
-        toggleActions: 'play none none none',
+    // Portfolio grid — staggered (C)
+    gsap.fromTo('.isotope .item',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: { each: 0.1, from: 'start' }, ease: 'power2.out',
+        scrollTrigger: { trigger: '.isotope', start: 'top 85%', toggleActions: 'play none none none' }
       }
-    });
+    );
 
     // Contact section
-    gsap.from('#contact-section .intro', {
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '#contact-section',
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      }
-    });
+    reveal('#contact-section .intro',
+      { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+      '#contact-section'
+    );
 
     // Section divider metrics
     gsap.utils.toArray('.section-divider .divider-content').forEach(function(el) {
-      gsap.from(el, {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        }
-      });
+      reveal(el, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
     });
   }
 
