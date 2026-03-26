@@ -1658,3 +1658,12 @@ html.no-js .preloader,
 .hero-hidden {
   visibility: hidden;
 }
+
+/* SplitText word divs need explicit gradient text since background-clip:text
+   doesn't inherit to child elements created by SplitText */
+.header .name .word {
+  background: linear-gradient(135deg, #fff 0%, #e2e8f0 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
