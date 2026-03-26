@@ -1387,6 +1387,50 @@ p {
 }
 
 /* ===== RESPONSIVE ===== */
+/* ===== Publications ===== */
+.publications-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.publication-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(102,126,234,0.15);
+  background: var(--light-surface);
+  box-shadow: 0 2px 12px rgba(102,126,234,0.08);
+  margin-bottom: 16px;
+  transition: all var(--transition-base);
+}
+
+.publication-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.publication-icon {
+  color: var(--primary);
+  font-size: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.publication-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.publication-source {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
 @media (max-width: 767px) {
   .header .social {
     margin: 0 auto;
