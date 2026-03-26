@@ -18,7 +18,7 @@ Add 7 award-winning animation effects to the portfolio site using a GSAP-centric
 | Lenis | Smooth scroll with inertia | Already in node_modules |
 | vanilla-tilt.js | 3D parallax tilt on hover | Already in node_modules |
 
-All libraries are already installed in `node_modules/`. They will be loaded via `<script>` tags from `node_modules/` paths or copied to `assets/plugins/`.
+All libraries are already installed in `node_modules/`. Minified dist files will be **copied to `assets/plugins/`** (matching the existing plugin pattern) so the site works without a build step on GitHub Pages.
 
 ## File Changes
 
@@ -44,7 +44,7 @@ All libraries are already installed in `node_modules/`. They will be loaded via 
 - SimpleLightbox — separate concern
 - Bootstrap grid system — layout unchanged
 - Video backgrounds — untouched
-- Scrollspy (Bootstrap) — keep, works alongside Lenis
+- Scrollspy (Bootstrap) — keep, but requires Lenis integration: call `$('[data-spy="scroll"]').scrollspy('refresh')` inside Lenis `scroll` callback so Bootstrap receives updated scroll position. Lenis dispatches native `scroll` events on `window` by default, so Scrollspy should continue to work, but `refresh` ensures accuracy after Lenis transforms.
 - External link handling — keep
 
 ---
@@ -120,7 +120,7 @@ touchMultiplier: 2
 
 **Hover states:**
 - Links/buttons (`a, button, .btn`): ring scales to 1.5×, border opacity drops to 0.2
-- Project cards (`.item`): ring scales to 2×, optionally show "View" text
+- Project cards (`.item`): ring scales to 2×, no text overlay (keep it minimal)
 - Click anywhere: brief pulse (ring scale 0.8→1, duration: 0.3s)
 
 **CSS:** `cursor: none` on `body` when custom cursor is active.
@@ -213,6 +213,7 @@ All triggers: `start: "top 85%"`, play once. Experience timeline items get `stag
 - ScrollTrigger `once: true` pattern — animations don't re-trigger, reducing scroll handler work
 - Preloader prevents layout shift by hiding content until entrance sequence
 - GSAP `will-change` management handled automatically
+- **Graceful degradation:** If GSAP fails to load, all animated elements should still be visible (initial CSS states use `opacity: 0` but a `<noscript>` fallback and `.no-js` body class override ensures content shows). Preloader has a CSS-only timeout fallback (`animation-delay` that auto-hides after 5s).
 
 ## Script Loading Order
 
