@@ -1,3 +1,32 @@
+/* ============================================
+ * GSAP + LENIS CORE SETUP
+ * ============================================ */
+
+// Remove no-js class (JS is working)
+document.documentElement.classList.remove('no-js');
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
+// Detect touch device
+const isTouch = !window.matchMedia('(hover: hover)').matches;
+
+// Initialize Lenis smooth scroll (desktop only)
+let lenis;
+if (!isTouch) {
+  lenis = new Lenis({
+    duration: 1.2,
+    easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+    orientation: 'vertical',
+    smoothWheel: true,
+  });
+
+  // Sync Lenis with GSAP ScrollTrigger
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
+}
+
 $(document).ready(function() {
 
   /* ======= External links open in new tab ======== */
@@ -9,16 +38,18 @@ $(document).ready(function() {
     offset: 100
   });
 
-  /* ======= ScrollTo ======= */
+  /* ======= ScrollTo (Lenis-powered) ======= */
   $('.scrollto').on('click', function(e) {
     var target = this.hash || $(this).data('target');
     if (!target) return;
     e.preventDefault();
-    $('body').scrollTo(target, 800, {
-      offset: -60,
-      'axis': 'y',
-      easing: 'easeInOutCubic'
-    });
+    if (lenis) {
+      lenis.scrollTo(target, { offset: -60 });
+    } else {
+      // Touch fallback
+      var el = document.querySelector(target);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 
   /* ======= Fixed page nav with glassmorphism ======= */
@@ -60,43 +91,6 @@ $(document).ready(function() {
       $(this).addClass('active');
     });
   });
-
-  /* ============================================
-   * SCROLL ANIMATIONS (Intersection Observer)
-   * ============================================ */
-  function initScrollAnimations() {
-    var animatedElements = document.querySelectorAll('[data-animate]');
-
-    if (!('IntersectionObserver' in window)) {
-      // Fallback: show everything immediately
-      animatedElements.forEach(function(el) {
-        el.classList.add('animated');
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var el = entry.target;
-          var delay = parseInt(el.getAttribute('data-delay')) || 0;
-          setTimeout(function() {
-            el.classList.add('animated');
-          }, delay);
-          observer.unobserve(el);
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    animatedElements.forEach(function(el) {
-      observer.observe(el);
-    });
-  }
-
-  initScrollAnimations();
 
   /* ============================================
    * SKILL PROGRESS BARS
@@ -236,33 +230,5 @@ $(document).ready(function() {
   }
 
   initParticles();
-
-  /* ============================================
-   * SMOOTH PAGE TRANSITIONS
-   * ============================================ */
-  // Fade sections as they scroll into/out of the strong viewport
-  function initSectionTransitions() {
-    var sections = document.querySelectorAll('.section');
-
-    if (!('IntersectionObserver' in window)) return;
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, {
-      threshold: 0.05,
-      rootMargin: '0px 0px -20px 0px'
-    });
-
-    sections.forEach(function(section) {
-      observer.observe(section);
-    });
-  }
-
-  initSectionTransitions();
 
 });
